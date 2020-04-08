@@ -1,7 +1,12 @@
 <template>
   <div class="k-footer">
     <div class="k-footer-column">
-      <a-input />
+      <form name="contact" method="POST" data-netlify="true">
+        <a-input placeholder="Email de contact">
+          <a-icon slot="prefix" type="user-add" />
+        </a-input>
+        <input type="submit" value="Envoyer" />
+      </form>
     </div>
     <div class="k-footer-column">
       <h3>Contacts</h3>
