@@ -2,8 +2,33 @@
   <div class="k-footer">
     <div class="k-footer-column">
       <h3>Pour être informer de mon statut</h3>
-      <form name="newsletter" method="POST" data-netlify="true" netlify @submit.prevent>
-        <input placeholder="groot@gardian.galaxy" type="text" name="mail" class="k-newsletter" /><button  class="k-newsletter-btn" v-cursor="'send'" type="submit">Envoyer</button>
+      <form 
+        name="newsletter" 
+        method="POST" 
+        @submit.prevent="handleSubmit" 
+        action="/success/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <p hidden>
+          <label>
+            Don’t fill this out: <input name="bot-field" />
+          </label>
+        </p>
+        <input 
+          placeholder="groot@gardian.galaxy" 
+          type="text" 
+          name="mail" 
+          class="k-newsletter" 
+          v-model="formData.mail"
+        />
+        <button 
+          class="k-newsletter-btn" 
+          v-cursor="'send'" 
+          type="submit"
+        >
+          Envoyer
+        </button>
       </form>
     </div>
     <div class="k-footer-column">
@@ -23,11 +48,30 @@
 
 export default {
   name: 'contact',
-  mounted () {
+  data() {
+    return {
+      formData: {}
+    }
   },
   methods: {
-
-  },
+    encode(data) {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&')
+    },
+    handleSubmit(e) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({
+          'form-name': e.target.getAttribute('name'),
+          ...this.formData,
+        }),
+      })
+      .then(() => alert("success"))
+      .catch(error => alert(error))
+    }
+  }
 }
 </script>
 
