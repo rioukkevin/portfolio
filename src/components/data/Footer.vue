@@ -1,25 +1,9 @@
 <template>
   <div class="k-footer">
     <div class="k-footer-column">
-      <form name="contact" method="POST" data-netlify="true">
-        <p>
-          <label>Your Name: <input type="text" name="name" /></label>   
-        </p>
-        <p>
-          <label>Your Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
-          <label>Your Role: <select name="role[]" multiple>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-          </select></label>
-        </p>
-        <p>
-          <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
+      <h3>Pour être informer de mon statut</h3>
+      <form name="newsletter" method="POST" data-netlify="true" netlify @submit.prevent>
+        <input placeholder="groot@gardian.galaxy" type="text" name="mail" class="k-newsletter" /><button  class="k-newsletter-btn" v-cursor="'send'" type="submit">Envoyer</button>
       </form>
     </div>
     <div class="k-footer-column">
@@ -74,6 +58,32 @@ export default {
 
       a{
         color: white;
+      }
+
+      .k-newsletter{
+        height: 60px;
+        outline: transparent;
+        padding: 0 20px;
+        border-radius: 0;
+        font-size: 20px;
+        width: 300px;
+        cursor: none !important;
+        border: 0 solid transparent;
+      }
+      .k-newsletter-btn{
+        height: 60px;
+        outline: transparent;
+        padding: 0 20px;
+        border-radius: 0;
+        font-size: 20px;
+        border: 0 solid transparent;
+        cursor: none !important;
+        background-color: white;
+
+        // &:hover{
+        //   background-color: #ff758c;
+        //   color: white;
+        // }
       }
     }
   }
