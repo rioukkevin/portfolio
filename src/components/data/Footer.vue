@@ -9,6 +9,7 @@
         action="/success/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        v-if="!sended"
       >
         <p hidden>
           <label>
@@ -17,10 +18,11 @@
         </p>
         <input 
           placeholder="groot@gardian.galaxy" 
-          type="text" 
+          type="mail" 
           name="mail" 
           class="k-newsletter" 
           v-model="formData.mail"
+          required
         />
         <button 
           class="k-newsletter-btn" 
@@ -30,6 +32,9 @@
           Envoyer
         </button>
       </form>
+      <p v-else>
+        {{ feedback }}
+      </p>
     </div>
     <div class="k-footer-column">
       <h3>Contacts</h3>
@@ -50,7 +55,9 @@ export default {
   name: 'contact',
   data() {
     return {
-      formData: {}
+      formData: {},
+      sended: false,
+      feedback: ''
     }
   },
   methods: {
@@ -68,8 +75,16 @@ export default {
           ...this.formData,
         }),
       })
-      .then(() => alert("success"))
-      .catch(error => alert(error))
+      .then(() => {
+        this.sended = true
+        this.feedback = 'Merci, j\'en tiendrais compte'
+        this.$cursor.type = 'blank'
+      })
+      .catch(() => {
+        this.sended = true
+        this.feedback = 'Hmmm, quelque chose n\'a pas fonctionner, je regarderais ça, envois moi un mail à la place'
+        this.$cursor.type = 'blank'
+      })
     }
   }
 }
@@ -94,14 +109,21 @@ export default {
       flex-direction: column;
       margin: 60px;
 
+      p{
+        color: white;
+        font-size: 20px;
+      }
+
       h3{
         color: white;
         font-size: 25px;
         white-space: nowrap;
+        text-transform: uppercase;
       }
 
       a{
         color: white;
+        font-size: 20px;
       }
 
       .k-newsletter{
@@ -123,11 +145,6 @@ export default {
         border: 0 solid transparent;
         cursor: none !important;
         background-color: white;
-
-        // &:hover{
-        //   background-color: #ff758c;
-        //   color: white;
-        // }
       }
     }
   }

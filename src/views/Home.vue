@@ -81,6 +81,7 @@ export default {
     // });
   },
   destroyed () {
+    window.removeEventListener('mousemove', this.moveTiles)
     window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
@@ -111,6 +112,27 @@ export default {
   },
   metaInfo: {
     title: '😎 Accueil',
+    meta: [
+      {property: 'og:title', content: 'RIOU Kevin - Portfolio 😎'},
+      {property: 'og:site_name', content: 'RIOU Kevin'},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:url', content: 'https://kevin.riou.pro'},
+      {property: 'og:image', content: 'https://kevin.riou.pro/assets/me/mini.png'},
+      {property: 'og:description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon prfil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
+
+      // Twitter card
+      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:site', content: 'https://kevin.riou.pro'},
+      {name: 'twitter:title', content: 'RIOU Kevin - Portfolio 😎'},
+      {name: 'twitter:description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon prfil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
+      {name: 'twitter:creator', content: '@RiouKevin6'},
+      {name: 'twitter:image:src', content: 'https://kevin.riou.pro/assets/me/mini.png'},
+
+      // Google / Schema.org markup:
+      {itemprop: 'name', content: 'RIOU Kevin - Portfolio 😎'},
+      {itemprop: 'description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon prfil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
+      {itemprop: 'image', content: 'https://kevin.riou.pro/assets/me/mini.png'}
+    ]
   }
 }
 </script>

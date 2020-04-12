@@ -139,8 +139,31 @@ export default {
       this.fullscreenBottom(this.side.n.colors[0])
     }
   },
-  metaInfo: {
-    title: '😝 Projet',
+  metaInfo() {
+    return {
+      title: '😝 Projet',
+      meta: [
+        {property: 'og:title', content: 'RIOU Kevin - Projets 😎'},
+        {property: 'og:site_name', content: 'RIOU Kevin'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:url', content: 'https://kevin.riou.pro/'+this.project.id},
+        {property: 'og:image', content: 'https://kevin.riou.pro/assets/project/'+this.project.id+'/miniature.png'},
+        {property: 'og:description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon prfil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
+
+        // Twitter card
+        {name: 'twitter:card', content: 'summary'},
+        {name: 'twitter:site', content: 'https://kevin.riou.pro/'+this.project.id},
+        {name: 'twitter:title', content: 'RIOU Kevin - Projets 😎'},
+        {name: 'twitter:description', content: this.project.description},
+        {name: 'twitter:creator', content: '@RiouKevin6'},
+        {name: 'twitter:image:src', content: 'https://kevin.riou.pro/assets/project/'+this.project.id+'/miniature.png'},
+
+        // Google / Schema.org markup:
+        {itemprop: 'name', content: 'RIOU Kevin - Projets 😎'},
+        {itemprop: 'description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon prfil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
+        {itemprop: 'image', content: 'https://kevin.riou.pro/assets/project/'+this.project.id+'/miniature.png'}
+      ]
+    }
   }
 }
 </script>
