@@ -5,7 +5,7 @@ import router from '../router'
 Vue.use(VueMatomo, {
   // Configure your matomo server and site by providing
   host: 'https://analytics.riou.pro',
-  siteId: 1,
+  siteId: 2,
  
   // Changes the default .js and .php endpoint's filename
   // Default: 'matomo'
