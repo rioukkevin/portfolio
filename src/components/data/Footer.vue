@@ -1,25 +1,34 @@
 <template>
   <div class="k-footer">
     <div class="k-footer-column">
-      <form name="contact" method="POST" data-netlify="true">
-        <p>
-          <label>Your Name: <input type="text" name="name" /></label>   
+      <h3>Pour être informer de mon statut</h3>
+      <form 
+        name="newsletter" 
+        method="POST" 
+        @submit.prevent="handleSubmit" 
+        action="/success/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <p hidden>
+          <label>
+            Don’t fill this out: <input name="bot-field" />
+          </label>
         </p>
-        <p>
-          <label>Your Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
-          <label>Your Role: <select name="role[]" multiple>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-          </select></label>
-        </p>
-        <p>
-          <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
+        <input 
+          placeholder="groot@gardian.galaxy" 
+          type="text" 
+          name="mail" 
+          class="k-newsletter" 
+          v-model="formData.mail"
+        />
+        <button 
+          class="k-newsletter-btn" 
+          v-cursor="'send'" 
+          type="submit"
+        >
+          Envoyer
+        </button>
       </form>
     </div>
     <div class="k-footer-column">
@@ -39,11 +48,30 @@
 
 export default {
   name: 'contact',
-  mounted () {
+  data() {
+    return {
+      formData: {}
+    }
   },
   methods: {
-
-  },
+    encode(data) {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&')
+    },
+    handleSubmit(e) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({
+          'form-name': e.target.getAttribute('name'),
+          ...this.formData,
+        }),
+      })
+      .then(() => alert("success"))
+      .catch(error => alert(error))
+    }
+  }
 }
 </script>
 
@@ -74,6 +102,32 @@ export default {
 
       a{
         color: white;
+      }
+
+      .k-newsletter{
+        height: 60px;
+        outline: transparent;
+        padding: 0 20px;
+        border-radius: 0;
+        font-size: 20px;
+        width: 300px;
+        cursor: none !important;
+        border: 0 solid transparent;
+      }
+      .k-newsletter-btn{
+        height: 60px;
+        outline: transparent;
+        padding: 0 20px;
+        border-radius: 0;
+        font-size: 20px;
+        border: 0 solid transparent;
+        cursor: none !important;
+        background-color: white;
+
+        // &:hover{
+        //   background-color: #ff758c;
+        //   color: white;
+        // }
       }
     }
   }

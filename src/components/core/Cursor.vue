@@ -29,7 +29,8 @@ export default {
         'right':'right',
         'instagram':'instagram',
         'linkedin':'linkedin',
-        'github':'github'
+        'github':'github',
+        'send':'check'
       }
     }
   },
@@ -142,7 +143,7 @@ export default {
   }
 
   .cursor_contain{
-    &.cursor_project, &.cursor_play, &.cursor_left, &.cursor_right, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience{
+    &.cursor_project, &.cursor_play, &.cursor_left, &.cursor_right, &.cursor_send, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience{
       .pointer{
         width: 50px;
         height: 50px;
@@ -151,6 +152,14 @@ export default {
         width: 80px;
         height: 80px;
         box-shadow: inset 0 0 0 70px rgba(255,255,255,0.3);
+      }
+    }
+    &.cursor_send{
+      .pointer{
+        background-color: rgba(255,117,140,0.7);
+      }
+      .back{
+        box-shadow: inset 0 0 0 70px rgba(255,117,140,0.3);
       }
     }
   }
