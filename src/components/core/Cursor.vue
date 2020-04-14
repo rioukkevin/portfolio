@@ -30,7 +30,9 @@ export default {
         'instagram':'instagram',
         'linkedin':'linkedin',
         'github':'github',
-        'send':'check'
+        'send':'check',
+        'tel':'phone',
+        'email':'mail'
       }
     }
   },
@@ -143,7 +145,7 @@ export default {
   }
 
   .cursor_contain{
-    &.cursor_project, &.cursor_play, &.cursor_left, &.cursor_right, &.cursor_send, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience{
+    &.cursor_project, &.cursor_play, &.cursor_email, &.cursor_tel, &.cursor_left, &.cursor_right, &.cursor_send, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience{
       .pointer{
         width: 50px;
         height: 50px;

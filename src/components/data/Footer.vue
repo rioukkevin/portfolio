@@ -2,6 +2,9 @@
   <div class="k-footer">
     <div class="k-footer-column">
       <h3>Pour être informer de mon statut</h3>
+      <p v-twemoji>
+        Vous pouvez me transmettre votre adresse email, je vous enverrais un ❤️ email lorsque je cherche un job 😜.
+      </p>
       <form 
         name="newsletter" 
         method="POST" 
