@@ -9,6 +9,8 @@
     <span class="k-punchline">Have a nice day and be happy</span>
     <img src="/assets/me/head3.png" loading="lazy" class="k-me" :style="{right: (scroll/3) + 'px'}">
     <div class="k-social">
+      <a href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">Email</a>
+      <a href="tel:+33618260849" v-cursor="'tel'">Tèl</a>
       <a target="_blank" href="https://www.instagram.com/kevinrioudev/" v-cursor="'instagram'">Instagram</a>
       <a target="_blank" href="https://www.linkedin.com/in/k%C3%A9vinriou/" v-cursor="'linkedin'">Linkedin</a>
       <a target="_blank" href="https://github.com/rioukkevin" v-cursor="'github'">Git</a>
@@ -31,8 +33,11 @@ export default {
     document.addEventListener('mousemove', this.move)
   },
   beforeRouteLeave (to, from, next) {
-    document.removeEventListener('mousemove', this.move);
+    document.removeEventListener('mousemove', this.move)
     next()
+  },
+  destroyed () {
+    document.removeEventListener('mousemove', this.move)
   },
   methods: {
     move (el) {
@@ -160,7 +165,9 @@ export default {
       color: white;
       z-index: 15;
       animation: inScale 500ms forwards;
-      display: none;
+      position: absolute;
+      right: 50px;
+      bottom: 50px;
     }
     .k-me{
       position: absolute;

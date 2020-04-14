@@ -3,7 +3,7 @@
     <k-cursor />
     <router-view/>
     <div class="dev">
-      Site web en construction
+      Site web en construction 
     </div>
   </div>
 </template>
@@ -18,6 +18,14 @@ export default {
 </script>
 
 <style lang="scss">
+
+img.emoji {
+   height: 1em;
+   width: 1em;
+   margin: 0 .05em 0 .1em;
+   vertical-align: -0.1em;
+}
+
 html{
   overflow-x: hidden;
   cursor: none !important;
