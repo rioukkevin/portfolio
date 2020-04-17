@@ -28,7 +28,7 @@ directives.install(Vue)
 Vue.config.productionTip = false
 
 Vue.prototype.$cursor = Vue.observable({ type: "blank"})
-// Vue.prototype.$cursor.type = binding.value
+
 Vue.directive('cursor', {
   bind: function (el, binding) {
     let enter = function(){
