@@ -35,7 +35,7 @@ export default function (Vue) {
   Vue.use(Timeline)
   Vue.use(Input)
   Vue.use(Notifications)
-  Vue.component(Notifications)
+  Vue.prototype.$notification = Notifications
   // HomeMade
   Vue.component('k-tile', KTile)
   Vue.component('k-cursor', KCursor)

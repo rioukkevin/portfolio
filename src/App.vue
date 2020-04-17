@@ -13,7 +13,16 @@ export default {
   metaInfo: {
     title: 'Yo',
     titleTemplate: '%s | RIOU Kévin'
-  }
+  },
+  mounted () {
+     this.$notification.open({
+        message: 'I am groot',
+        description:
+          'Juste pour vous informer, je suis dispo pour des contrats en freelance, hésitez pas !',
+        duration: 100,
+        placement: 'bottomLeft'
+      })
+  },
 }
 </script>
 
@@ -30,6 +39,29 @@ html{
   overflow-x: hidden;
   cursor: none !important;
 }
+.ant-notification{
+  z-index: 500 !important;
+
+  .ant-notification-notice-close{
+    display: none;
+  }
+
+  .ant-notification-notice{
+    background-color: black;
+    font-family: 'bigjohn', Helvetica, Arial, sans-serif;
+    color: white;
+    box-shadow: 0 0 0 1px #fff;
+    border-radius: 0px;
+
+    .ant-notification-notice-message{
+      font-family: 'bigjohn', Helvetica, Arial, sans-serif;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+}
+
 #app {
   font-family: 'bigjohn', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
