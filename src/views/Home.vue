@@ -6,7 +6,7 @@
     <h1 class="title-home" ref="title1" :style="{'--indent': (((scroll-1000)/4)*1) + 'px'}">Mon travail</h1>
     <div class="tiles" ref="tiles">
       <div class="search" :style="{width:searchWidth}">
-        <a-input-search v-cursor="'search'" v-model="projectFilter" placeholder="Search for a project" style="width: 100%" />
+        <a-input-search v-cursor="'text'" v-model="projectFilter" placeholder="Search for a project" style="width: 100%" />
       </div>
       <div class="tilescontent">
         <k-tile v-for="(p) in projectData" :key="p.id" color="white" :width="2" :height="2" :background="'url(/assets/project/'+p.id+'/tile.png'">

@@ -59,7 +59,7 @@
 
   .k-tile-content{
     border-radius: 2px;
-    box-shadow: 0 0 40px 0 rgba(255,255,255,0.25);
+    box-shadow: 0 0 60px 0 rgba(255,255,255,0.25);
     width: calc(100% - 40px);
     height: calc(100% - 40px);
     margin: 20px;
@@ -74,8 +74,8 @@
       width: 100%;
       height: 100%;
       margin: 0;
-      box-shadow: 0 0 20px 0 rgba(255,255,255,0.25);
-      background-size: auto 110%;
+      box-shadow: 0 0 30px 0 rgba(255,255,255,0.25);
+      background-size: auto 150%;
     }
   }
 }

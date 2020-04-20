@@ -1,10 +1,10 @@
 <template>
   <div class="k-song">
     <div class="back">
-      <img ref="album" class="mini" :src="'/assets/music/'+ dat.id +'.jpg'" >
+      <img ref="albumb" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" >
     </div>
     <div class="music-content" >
-      <img ref="album" class="mini" :src="'/assets/music/'+ dat.id +'.jpg'" >
+      <img ref="album" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" >
       <div class="song" ref="song">{{ dat.title }}</div>
       <a-button type="primary" class="listen" @click="go(dat.link)" v-cursor="'play'">Ecouter</a-button>
       <a-button type="icon" icon="right" class="next" @click="next" v-cursor="'right'"></a-button>
@@ -36,8 +36,9 @@ export default {
       window.open(link, "_blank");
     },
     async next(){
-      let album = this.$refs.album
+      let album = [this.$refs.album, this.$refs.albumb]
       let song = this.$refs.song
+      this.$refs.album.style.transitionDuration = "0ms"
       anime({
         targets: song,
         opacity: 0,
@@ -46,7 +47,6 @@ export default {
       })
       anime({
         targets: album,
-        left: '70px',
         opacity: '0',
         duration: 300,
         easing: 'easeOutExpo',
@@ -56,7 +56,6 @@ export default {
           this.current = this.dat.id
           anime({
             targets: album,
-            left: '30px',
             opacity: '0',
             duration: 1,
             easing: 'linear',
@@ -69,11 +68,11 @@ export default {
               })
               anime({
                 targets: album,
-                left: '50px',
                 opacity: '1',
                 duration: 300,
                 easing: 'easeInExpo',
                 complete: () => {
+                  this.$refs.album.style.transitionDuration = "300ms"
                 }
               })
             }
@@ -83,8 +82,9 @@ export default {
       })
     },
     async previous(){
-      let album = this.$refs.album
+      let album = [this.$refs.album, this.$refs.albumb]
       let song = this.$refs.song
+      this.$refs.album.style.transitionDuration = "0ms"
       anime({
         targets: song,
         opacity: 0,
@@ -93,7 +93,6 @@ export default {
       })
       anime({
         targets: album,
-        left: '30px',
         opacity: '0',
         duration: 300,
         easing: 'easeOutExpo',
@@ -103,7 +102,6 @@ export default {
           this.current = this.dat.id
           anime({
             targets: album,
-            left: '70px',
             opacity: '0',
             duration: 1,
             easing: 'linear',
@@ -116,11 +114,11 @@ export default {
               })
               anime({
                 targets: album,
-                left: '50px',
                 opacity: '1',
                 duration: 300,
                 easing: 'easeInExpo',
                 complete: () => {
+                  this.$refs.album.style.transitionDuration = "300ms"
                 }
               })
             }
@@ -168,11 +166,18 @@ export default {
       width: 700px;
       height: 400px;
 
+      &:hover{
+        .mini{
+          transform: scale(1.2);
+        }
+      }
+
       .mini{
         width: 300px;
         height: 300px;
         top: 50px;
         left: 50px;
+        transition-duration: 400ms;
       }
 
       .song{

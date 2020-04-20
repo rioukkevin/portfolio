@@ -5,6 +5,7 @@
     <h2 class="k-job">Fullstack web developer</h2>
     <p class="k-description">
       Salut, moi c'est Kévin, je suis un jeune étudiant à MyDigitalSchool travaillant en alternance dans l'entreprise Pasquier et en Freelance à mon compte. N'hésitez pas à vous balader sur mon site pour voir quelques réalisations que j'ai faites.
+      <!-- <a @click="$router.push({name: 'me'})"> Un peu plus d'infos sur moi</a> -->
     </p>
     <span class="k-punchline">Have a nice day and be happy</span>
     <img src="/assets/me/head3.png" loading="lazy" class="k-me" :style="{right: (scroll/3) + 'px'}">

@@ -32,7 +32,9 @@ export default {
         'github':'github',
         'send':'check',
         'tel':'phone',
-        'email':'mail'
+        'email':'mail',
+        'link': 'link',
+        'text':'blank'
       }
     }
   },
@@ -145,7 +147,7 @@ export default {
   }
 
   .cursor_contain{
-    &.cursor_project, &.cursor_play, &.cursor_email, &.cursor_tel, &.cursor_left, &.cursor_right, &.cursor_send, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience{
+    &.cursor_link, &.cursor_project, &.cursor_play, &.cursor_email, &.cursor_tel, &.cursor_left, &.cursor_right, &.cursor_send, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience{
       .pointer{
         width: 50px;
         height: 50px;
@@ -162,6 +164,19 @@ export default {
       }
       .back{
         box-shadow: inset 0 0 0 70px rgba(255,117,140,0.3);
+      }
+    }
+    &.cursor_text{
+      .pointer{
+        height: 30px;
+        width: 2px;
+        border-radius: 5px;
+        background-color: black;
+      }
+      .back{
+        width: 80px;
+        height: 80px;
+        box-shadow: inset 0 0 0 0 rgba(255,255,255,0.3);
       }
     }
   }

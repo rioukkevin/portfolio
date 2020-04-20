@@ -5,7 +5,6 @@ import router from './router'
 import 'ant-design-vue/dist/antd.css';
 import registerComponent from './components'
 import './styles/font.scss'
-import './styles/spacing.scss'
 import anime from './libs/animejs'
 import directives from './libs/directives'
 import VueMeta from 'vue-meta'
@@ -60,7 +59,9 @@ window.addEventListener(
   }
 )
 
-new Vue({
+let v = new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
+
+window.$vue = v

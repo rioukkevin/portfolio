@@ -15,6 +15,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue')
   },
   {
+    path: '/IamGroot',
+    name: 'me',
+    component: () => import(/* webpackChunkName: "me" */ '../views/Me.vue')
+  },
+  {
     path: '/redirect',
     name: 'redirect',
     component: () => import(/* webpackChunkName: "redirect" */ '../views/Redirect.vue'),

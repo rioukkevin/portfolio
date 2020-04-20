@@ -1,9 +1,10 @@
 <template>
   <div class="k-footer">
     <div class="k-footer-column">
+      <!-- I don't use ant design input cause I use netlify form handling, the name attribute is not transmit to html input when using it -->
       <h3>Pour être informer de mon statut</h3>
       <p v-twemoji>
-        Vous pouvez me transmettre votre adresse email, je vous enverrais un ❤️ email lorsque je cherche un job 😜.
+        Vous pouvez me transmettre votre adresse email, je vous enverrais un email lorsque je cherche un job 😜.
       </p>
       <form 
         name="newsletter" 
@@ -20,6 +21,7 @@
           </label>
         </p>
         <input 
+          v-cursor="'text'"
           placeholder="groot@gardian.galaxy" 
           type="mail" 
           name="mail" 
@@ -41,12 +43,13 @@
     </div>
     <div class="k-footer-column">
       <h3>Contacts</h3>
-      <a target="_blank" href="mailto:riou.kkevin@gmail.com">riou.kkevin@gmail.com</a>
-      <a target="_blank" href="tel:+33618260849">06.18.26.08.49</a>
+      <a target="_blank" href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">riou.kkevin@gmail.com</a>
+      <a target="_blank" href="tel:+33618260849" v-cursor="'tel'">06.18.26.08.49</a>
     </div>
     <div class="k-footer-column">
       <h3>Crédits</h3>
-      <a href="https://iconscout.com/contributors/jemismali">Jemis Mali pour les icones de la barre de statut IphoneXS</a>
+      <a target="_blank" href="https://iconscout.com/contributors/jemismali" v-twemoji v-cursor="'link'">Jemis Mali pour les icones de la barre de statut IphoneXS 😜</a>
+      <a target="_blank" href="https://www.netlify.com/" v-cursor="'link'">Site web hébergé par Netlify</a>
     </div>
   </div>
 </template>
@@ -107,7 +110,7 @@ export default {
     padding: 50px;
 
     .k-footer-column{
-      width: 500px;
+      width: 550px;
       display: flex;
       flex-direction: column;
       margin: 60px;
@@ -127,6 +130,8 @@ export default {
       a{
         color: white;
         font-size: 20px;
+        margin: 10px 0;
+        cursor: none !important;
       }
 
       .k-newsletter{
