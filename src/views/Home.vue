@@ -9,7 +9,7 @@
         <a-input-search v-cursor="'text'" v-model="projectFilter" placeholder="Search for a project" style="width: 100%" />
       </div>
       <div class="tilescontent">
-        <k-tile v-for="(p) in projectData" :key="p.id" color="white" :width="2" :height="2" :background="'url(/assets/project/'+p.id+'/tile.png'">
+        <k-tile ref="toto" v-for="(p) in projectData" :key="p.id" color="white" :width="2" :height="2" :background="'url(/assets/project/'+p.id+'/tile.webp'">
           <k-project :data="p" :color="p.colors[0]"/>
         </k-tile>
       </div>
@@ -63,6 +63,7 @@ export default {
     },
     xps(){
       return xps
+
     }
   },
   created () {

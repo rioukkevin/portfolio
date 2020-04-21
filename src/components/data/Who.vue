@@ -8,7 +8,7 @@
       <!-- <a @click="$router.push({name: 'me'})"> Un peu plus d'infos sur moi</a> -->
     </p>
     <span class="k-punchline">Have a nice day and be happy</span>
-    <img src="/assets/me/head3.png" loading="lazy" class="k-me" :style="{right: (scroll/3) + 'px'}">
+    <img src="/assets/me/head3.webp" loading="lazy" class="k-me" :style="{right: (scroll/6) + 'px'}">
     <div class="k-social">
       <a href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">Email</a>
       <a href="tel:+33618260849" v-cursor="'tel'">Tèl</a>
@@ -177,7 +177,6 @@ export default {
       bottom: 0px;
       height: calc(100vh - 50px);
       z-index: 5;
-      transition-duration: 200ms;
     }
     .k-social{
       position: absolute;

@@ -80,6 +80,7 @@ export default {
       align-items: center;
       overflow: hidden;
 
+
       &:hover{
         width: 100%;
         height: 100%;

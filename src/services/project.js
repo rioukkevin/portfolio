@@ -80,7 +80,7 @@ export default {
         {
           type: "full",
           title: "I am Groot",
-          image: "greevel/m1.png",
+          image: "greevel/m1.webp",
           description: ""
         },
         {

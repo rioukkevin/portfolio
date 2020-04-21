@@ -5,7 +5,6 @@ import router from './router'
 import 'ant-design-vue/dist/antd.css';
 import registerComponent from './components'
 import './styles/font.scss'
-import anime from './libs/animejs'
 import directives from './libs/directives'
 import VueMeta from 'vue-meta'
 import VueScreenSize from 'vue-screen-size'
@@ -22,7 +21,6 @@ Vue.use(VueScreenSize)
 Vue.use(VueMeta)
 
 registerComponent(Vue)
-anime.install(Vue)
 directives.install(Vue)
 Vue.config.productionTip = false
 

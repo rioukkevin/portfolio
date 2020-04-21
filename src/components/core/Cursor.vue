@@ -68,7 +68,6 @@ export default {
   methods: {
     cursorMove (e) {
       let follow = this.$refs.follow
-      anime()
       setTimeout(() => {
         follow.style.left = e.x + 'px'
         follow.style.top = e.y + 'px'
