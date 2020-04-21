@@ -2,7 +2,11 @@ const path = require('path')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 
 module.exports = {
-  configureWebpack: () => {
+  configureWebpack: config => {
+    config.resolve.alias = {
+      "@": path.resolve(__dirname, "src"),
+      "@mixins": path.resolve(__dirname, "src/mixins")
+    }
     if (process.env.NODE_ENV !== 'production') return;
     return {
       plugins: [
@@ -15,7 +19,7 @@ module.exports = {
             // options
           }
         ),
-      ]
+      ],
     }
-  }
+  },
 }

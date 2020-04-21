@@ -13,9 +13,6 @@
           <k-project :data="p" :color="p.colors[0]"/>
         </k-tile>
       </div>
-      <!-- <div class="more" v-cursor="'more'">
-        View More
-      </div> -->
     </div>
     <h1 class="title-home" ref="title2" :style="{'--indent': (((scroll-4000)/3)*1) + 'px'}">Ce que j'écoute</h1>
     <div class="zik">
@@ -34,7 +31,6 @@
 
 <script>
 import projects from '../services/project'
-import xps from '../services/xp'
 
 export default {
   name: 'home',
@@ -60,10 +56,6 @@ export default {
       const num = Math.floor(this.$vssWidth / 600)
       const res = (num * 600) - 40
       return res + 'px'
-    },
-    xps(){
-      return xps
-
     }
   },
   created () {
@@ -75,11 +67,6 @@ export default {
     this.repeatTitle(this.$refs.title2)
     this.repeatTitle(this.$refs.title3)
     this.repeatTitle(this.$refs.title4)
-
-    // this.notification.open({
-    //   message: 'Notification Title',
-    //   description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-    // });
   },
   destroyed () {
     window.removeEventListener('mousemove', this.moveTiles)

@@ -9,8 +9,7 @@ import Input from 'ant-design-vue/lib/input'
 import KTile from './core/Tile'
 import KDetail from './core/Detail'
 import KCursor from './core/Cursor'
-
-import KLogo from './common/Logo'
+import KLogo from './core/Logo'
 
 import KFooter from './data/Footer'
 import KWho from './data/Who'

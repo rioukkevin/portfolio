@@ -7,18 +7,19 @@
       <img ref="album" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" >
       <div class="song" ref="song">{{ dat.title }}</div>
       <a-button type="primary" class="listen" @click="go(dat.link)" v-cursor="'play'">Ecouter</a-button>
-      <a-button type="icon" icon="right" class="next" @click="next" v-cursor="'right'"></a-button>
-      <a-button type="icon" icon="left" class="previous" @click="previous" v-cursor="'left'"></a-button>
+      <a-button type="icon" icon="right" class="next" @click="animation_next" v-cursor="'right'"></a-button>
+      <a-button type="icon" icon="left" class="previous" @click="animation_previous" v-cursor="'left'"></a-button>
     </div>
   </div>
 </template>
 
 <script>
-import anime from 'animejs/lib/anime.es.js';
-import music from '@/services/music'
+import animation from '@mixins/music.animation'
+import data from '@mixins/music.data'
 
 export default {
   name: 'music',
+  mixins: [animation, data],
   data() {
     return {
       current: 'billy',
@@ -26,106 +27,12 @@ export default {
     }
   },
   mounted () {
-    this.update()
+    this.data_update()
   },
   methods: {
-    async update(){
-      this.dat = await music.get(this.current);
-    },
     go(link){
       window.open(link, "_blank");
     },
-    async next(){
-      let album = [this.$refs.album, this.$refs.albumb]
-      let song = this.$refs.song
-      this.$refs.album.style.transitionDuration = "0ms"
-      anime({
-        targets: song,
-        opacity: 0,
-        duration: 300,
-        easing: 'easeOutExpo'
-      })
-      anime({
-        targets: album,
-        opacity: '0',
-        duration: 300,
-        easing: 'easeOutExpo',
-        complete: () => {
-          let t = music.next(this.current)
-          this.dat = t
-          this.current = this.dat.id
-          anime({
-            targets: album,
-            opacity: '0',
-            duration: 1,
-            easing: 'linear',
-            complete: () => {
-              anime({
-                targets: song,
-                opacity: 1,
-                duration: 300,
-                easing: 'easeInExpo'
-              })
-              anime({
-                targets: album,
-                opacity: '1',
-                duration: 300,
-                easing: 'easeInExpo',
-                complete: () => {
-                  this.$refs.album.style.transitionDuration = "300ms"
-                }
-              })
-            }
-          })
-          
-        }
-      })
-    },
-    async previous(){
-      let album = [this.$refs.album, this.$refs.albumb]
-      let song = this.$refs.song
-      this.$refs.album.style.transitionDuration = "0ms"
-      anime({
-        targets: song,
-        opacity: 0,
-        duration: 300,
-        easing: 'easeOutExpo'
-      })
-      anime({
-        targets: album,
-        opacity: '0',
-        duration: 300,
-        easing: 'easeOutExpo',
-        complete: () => {
-          let t = music.previous(this.current)
-          this.dat = t
-          this.current = this.dat.id
-          anime({
-            targets: album,
-            opacity: '0',
-            duration: 1,
-            easing: 'linear',
-            complete: () => {
-              anime({
-                targets: song,
-                opacity: 1,
-                duration: 300,
-                easing: 'easeInExpo'
-              })
-              anime({
-                targets: album,
-                opacity: '1',
-                duration: 300,
-                easing: 'easeInExpo',
-                complete: () => {
-                  this.$refs.album.style.transitionDuration = "300ms"
-                }
-              })
-            }
-          })
-        }
-      })
-    }
   },
 }
 </script>

@@ -7,27 +7,26 @@
 </template>
 
 <script>
-import data from '@mixins/xp.data'
+import xps from '../../services/experiences'
 
 export default {
   name: 'xp',
-  mixins: [data],
   props: {
     data: {
       type: Object,
       default: () => {}
     },
   },
-  data() {
-    return {
-      xps: []
-    }
-  },
   methods: {
     rdmtr(index) {
       let random = Math.random() * 200
       index % 2 == 0 ? random*= -1 : random *= 1
       return 'translateX('+random+'px)'
+    }
+  },
+  computed: {
+    xps() {
+      return xps.data
     }
   },
 }
