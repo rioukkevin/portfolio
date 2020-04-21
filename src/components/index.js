@@ -15,6 +15,7 @@ import KLogo from './common/Logo'
 import KFooter from './data/Footer'
 import KWho from './data/Who'
 import KProject from './data/Project'
+import KProjectList from './data/Projects'
 import KMusic from './data/Music'
 import KPalette from './data/Palette'
 import KXp from './data/Xp'
@@ -37,6 +38,7 @@ export default function (Vue) {
   Vue.component('k-footer', KFooter)
   Vue.component('k-who', KWho)
   Vue.component('k-project', KProject)
+  Vue.component('k-project-list', KProjectList)
   Vue.component('k-music', KMusic)
   Vue.component('k-palette', KPalette)
 }

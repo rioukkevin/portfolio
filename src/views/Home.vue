@@ -4,16 +4,7 @@
       <k-who :scroll="scroll"/>
     </div>
     <h1 class="title-home" ref="title1" :style="{'--indent': (((scroll-1000)/4)*1) + 'px'}">Mon travail</h1>
-    <div class="tiles" ref="tiles">
-      <div class="search" :style="{width:searchWidth}">
-        <a-input-search v-cursor="'text'" v-model="projectFilter" placeholder="Search for a project" style="width: 100%" />
-      </div>
-      <div class="tilescontent">
-        <k-tile ref="toto" v-for="(p) in projectData" :key="p.id" color="white" :width="2" :height="2" :background="'url(/assets/project/'+p.id+'/tile.webp'">
-          <k-project :data="p" :color="p.colors[0]"/>
-        </k-tile>
-      </div>
-    </div>
+    <k-project-list />
     <h1 class="title-home" ref="title2" :style="{'--indent': (((scroll-4000)/3)*1) + 'px'}">Ce que j'écoute</h1>
     <div class="zik">
       <k-music />
@@ -30,7 +21,6 @@
 </template>
 
 <script>
-import projects from '../services/project'
 
 export default {
   name: 'home',
@@ -38,28 +28,15 @@ export default {
     return {
       scroll: 0,
       blankBounding: {},
-      projectFilter: ''
     }
   },
   computed: {
-    projectData() {
-      let d = []
-      projects.list().map(el => d.push({id: el, ...projects.get(el)}))
-      d = d.filter(el => this.filterProjet(el))
-      return d
-    },
     isVertical(){
       // For mobile version next
       return this.$vssWidth < this.$vssHeight
     },
-    searchWidth(){
-      const num = Math.floor(this.$vssWidth / 600)
-      const res = (num * 600) - 40
-      return res + 'px'
-    }
   },
   created () {
-    window.addEventListener('mousemove', this.moveTiles)
     window.addEventListener('scroll', this.onScroll);
   },
   mounted () {
@@ -69,18 +46,11 @@ export default {
     this.repeatTitle(this.$refs.title4)
   },
   destroyed () {
-    window.removeEventListener('mousemove', this.moveTiles)
     window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
     onScroll(){
       this.scroll = window.scrollY
-    },
-    moveTiles(e) {
-      const cont = this.$refs.tiles
-      let temp = ((e.y - (window.innerHeight/2)) * -0.07)
-      cont.style.marginTop = temp + 'px'
-      cont.style.marginBottom = (temp * -1) + 'px'
     },
     repeatTitle(el){
       let text = el.innerText
@@ -88,14 +58,6 @@ export default {
       for(let i = 0; i < total; i++){
         el.insertAdjacentHTML('beforeend',' ' + text)
       }
-    },
-    filterProjet(p){
-      let success = false
-      p.title.toLowerCase().includes(this.projectFilter.toLowerCase()) ? success = true : 0
-      p.description.toLowerCase().includes(this.projectFilter.toLowerCase()) ? success = true : 0
-      p.job.toLowerCase().includes(this.projectFilter.toLowerCase()) ? success = true : 0
-      p.technologies.forEach(t => t.toLowerCase().includes(this.projectFilter.toLowerCase()) ? success = true : 0)
-      return success
     }
   },
   metaInfo: {
@@ -189,54 +151,6 @@ export default {
     .footer{
       min-height: 100vh;
       width: 100%;
-    }
-    .tiles{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      .search{
-        cursor: none !important;
-
-        input{
-          height: 60px;
-          outline: transparent;
-          padding: 0 50px;
-          border-radius: 0;
-          font-size: 20px;
-          cursor: none !important;
-        }
-
-        svg{
-          width: 20px;
-          height: 20px;
-          margin-right: 50px;
-        }
-      }
-
-      .tilescontent{
-        min-height: 700px; 
-        width: 100vw;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        align-items: center;
-
-        .k-tile{
-          animation: backwards tiles 500ms;
-        }
-      }
-    }
-  }
-
-  @keyframes tiles {
-    from{
-      opacity: 0
-    }
-    to{
-      opacity: 1;
     }
   }
 
