@@ -20,16 +20,31 @@
 </template>
 
 <script>
-import mixinRainbow from '@mixins/rainbow.animation'
-import animation from '@mixins/who.animation'
+import mixinRainbow from './rainbow'
 
 export default {
-  mixins: [mixinRainbow,animation],
+  mixins: [mixinRainbow],
   props: {
     scroll: {
       type: Number,
       default: 0 
     },
+  },
+  created () {
+    document.addEventListener('mousemove', this.move)
+  },
+  beforeRouteLeave (to, from, next) {
+    document.removeEventListener('mousemove', this.move)
+    next()
+  },
+  destroyed () {
+    document.removeEventListener('mousemove', this.move)
+  },
+  methods: {
+    move (el) {
+      const tomovecontainer = document.getElementsByClassName('k-name-container')[0]
+      tomovecontainer.style.transform = 'translateY('+((el.y - window.innerHeight / 2) * -0.1)+'px)'
+    }
   },
   mounted () {
     let name = this.$refs.name.textContent
