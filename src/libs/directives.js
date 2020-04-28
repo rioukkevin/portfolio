@@ -15,5 +15,19 @@ export default {
         el.innerHTML = newHtml
       }
     })
+
+    Vue.prototype.$cursor = Vue.observable({ type: "blank"})
+    Vue.directive('cursor', {
+      bind: function (el, binding) {
+        let enter = function(){
+          Vue.prototype.$cursor.type = binding.value
+        }
+        el.addEventListener('mouseenter', enter)
+        let leave = function(){
+          Vue.prototype.$cursor.type = 'blank'
+        }
+        el.addEventListener('mouseleave', leave)
+      }
+    })
   }
 }

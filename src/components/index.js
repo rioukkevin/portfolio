@@ -1,10 +1,15 @@
 // component register
 // Ant
+import 'ant-design-vue/lib/style/index.css'
 import Button from 'ant-design-vue/lib/button'
+import 'ant-design-vue/lib/button/style/index.css'
 import Icon from 'ant-design-vue/lib/icon'
+import 'ant-design-vue/lib/icon/style/index.css'
 import Row from 'ant-design-vue/lib/row'
 import Col from 'ant-design-vue/lib/col'
+import 'ant-design-vue/lib/grid/style/index.css'
 import Input from 'ant-design-vue/lib/input'
+import 'ant-design-vue/lib/input/style/index.css'
 // Homemade
 import KTile from './core/Tile'
 import KDetail from './core/Detail'
