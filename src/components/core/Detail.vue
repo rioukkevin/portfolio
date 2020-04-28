@@ -4,7 +4,7 @@
     <a-col :span="8" v-if="data.type == 'left'" class="k-visu" style="padding: 0 40px">
       <img :src="'/assets/project/'+data.image">
     </a-col>
-    <a-col :span="8" v-if="data.type != 'full'" class="description" style="padding:40px">
+    <a-col :span="8" v-if="data.type != 'full'" class="k-description" style="padding:40px">
       <h2 class="k-subtitle">{{data.title}}</h2>
       <p>{{ data.description}}</p>
     </a-col>
@@ -41,6 +41,10 @@
     justify-content: center;
     align-items: center;
 
+    .k-description{
+      margin: 50px 0;
+    }
+
     .k-subtitle{
       text-transform: uppercase;
       font-weight: 700;
@@ -52,6 +56,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: -100px;
+      border-radius: 1000px;
+      transition-duration: 300ms;
+      z-index: 5;
+      transition-delay: 0ms;
+
+      &:hover{
+        transform: scale(1.2);
+        z-index: 3;
+        transition-delay: 300ms;
+      }
 
       img{
         max-height: 800px;
@@ -65,6 +80,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: -100px;
+      border-radius: 1000px;
+      transition-duration: 300ms;
+      z-index: 5;
+      transition-delay: 0ms;
+
+      &:hover{
+        transform: scale(1.7);
+        z-index: 3;
+        transition-delay: 300ms;
+        background-color: rgba(255,0,0,1);
+      }
 
       img{
         max-height: 500px;

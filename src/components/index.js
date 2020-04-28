@@ -11,6 +11,7 @@ import KDetail from './core/Detail'
 import KCursor from './core/Cursor'
 
 import KLogo from './common/Logo'
+import KVCard from './common/VCard'
 
 import KFooter from './data/Footer'
 import KWho from './data/Who'
@@ -33,6 +34,7 @@ export default function (Vue) {
   Vue.component('k-cursor', KCursor)
   Vue.component('k-detail', KDetail)
   Vue.component('k-logo', KLogo)
+  Vue.component('k-vcard', KVCard)
 
   Vue.component('k-xp', KXp)
   Vue.component('k-footer', KFooter)

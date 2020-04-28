@@ -1,11 +1,14 @@
 <template>
   <div class="k-who">
+    <k-vcard v-model="vcard" />
     <k-logo :size="[50,50]" :fill="rainbow" :r="2" :k="2" />
     <div ref="name" class="k-name-container">RIOU KEVIN</div>
     <h2 class="k-job">Fullstack web developer</h2>
     <p class="k-description">
       Salut, moi c'est Kévin, je suis un jeune étudiant à MyDigitalSchool travaillant en alternance dans l'entreprise Pasquier et en Freelance à mon compte. N'hésitez pas à vous balader sur mon site pour voir quelques réalisations que j'ai faites.
-      <!-- <a @click="$router.push({name: 'me'})"> Un peu plus d'infos sur moi</a> -->
+      <a-button id="addContact" v-cursor="'contact'" @click="vcard = true">
+        Ajouter le contact
+      </a-button>
     </p>
     <span class="k-punchline">Have a nice day and be happy</span>
     <img src="/assets/me/head3.webp" loading="lazy" class="k-me" :style="{right: (scroll/6) + 'px'}">
@@ -30,6 +33,11 @@ export default {
       type: Number,
       default: 0 
     },
+  },
+  data() {
+    return {
+      vcard: false
+    }
   },
   mounted () {
     let name = this.$refs.name.textContent
@@ -142,6 +150,30 @@ export default {
       text-align: right;
       text-shadow: 0px 0px 20px #000000;
       animation: inScale 500ms forwards;
+    }
+
+    #addContact{
+      position: absolute;
+      right: 0;
+      bottom: -50px;
+      background-color: transparent;
+      color: white;
+      border-radius: 2px;
+      box-shadow: 5px 5px 0 0 black,
+        inset 5px 5px 0 0 black;
+      padding: 5px 20px;
+      height: auto;
+
+      &:focus{
+        border-color: grey;
+      }
+
+      &:hover{
+        background-color: white;
+        box-shadow: 0 0 0 0 black;
+        border-color: white;
+        color: black;
+      }
     }
 
     .k-punchline{

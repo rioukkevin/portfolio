@@ -34,7 +34,8 @@ export default {
         'tel':'phone',
         'email':'mail',
         'link': 'link',
-        'text':'blank'
+        'text':'blank',
+        'contact': 'plus',
       }
     }
   },
@@ -100,7 +101,7 @@ export default {
     overflow: hidden;
     pointer-events: none;
     margin: -50px;
-    z-index: 998;
+    z-index: 1004;
     mix-blend-mode: exclusion;
 
     .back{
@@ -125,7 +126,7 @@ export default {
     overflow: hidden;
     pointer-events: none;
     margin: -50px;
-    z-index: 999;
+    z-index: 1005;
 
     .pointer{
       transition-duration: 200ms;
@@ -146,7 +147,7 @@ export default {
   }
 
   .cursor_contain{
-    &.cursor_link, &.cursor_project, &.cursor_play, &.cursor_email, &.cursor_tel, &.cursor_left, &.cursor_right, &.cursor_send, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience{
+    &.cursor_link, &.cursor_project, &.cursor_play, &.cursor_email, &.cursor_tel, &.cursor_left, &.cursor_right, &.cursor_send, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience, &.cursor_contact{
       .pointer{
         width: 50px;
         height: 50px;
@@ -163,6 +164,14 @@ export default {
       }
       .back{
         box-shadow: inset 0 0 0 70px rgba(255,117,140,0.3);
+      }
+    }
+    &.cursor_contact{
+      .pointer{
+        background-color: rgba(255,255,255,1);
+      }
+      .back{
+        box-shadow: inset 0 0 0 70px rgba(255,255,255,1);
       }
     }
     &.cursor_text{
