@@ -78,22 +78,22 @@ export default {
       ],
       details: [
         {
-          type: "full",
+          type: "right",
           title: "I am Groot",
           image: "greevel/m1.webp",
-          description: ""
+          description: "toto"
         },
         {
           type: "left",
           title: "Un projet à durée déterminée",
-          image: "greevel/m2.png",
+          image: "greevel/m2.webp",
           description: "Greevel est un prototype fait pour un investisseur sur Angers. Celui-ci à veut une idée et un prototype d'application pour inciter les employés des entreprises en ville à utiliser des moyens de transports commun ou plus écologiques."
         },
         {
           type: "right",
           title: "Quelle particularité",
-          image: "greevel/m3.png",
-          description: "Le tout à été fait en une semaine et en Anglais (L'english week), en quelques jours j'ai développé l'application en mode 'Quick and Dirty' pour présenter à l'investisseur en fin de semaine. Le prototype et l'idée associée à celui-ci ont été très bien accueillis, nous avons été élu équipe la plus professionnelle"
+          image: "greevel/m3.webp",
+          description: "Le tout à été fait en une semaine et en Anglais (L'english week), en quelques jours j'ai développé l'application en mode 'Quick and Dirty' pour présenter à l'investisseur en fin de semaine. Le prototype et l'idée associée à celui-ci ont été très bien accueillis, nous avons été élu équipe la plus professionnelle."
         }
       ]
     },
