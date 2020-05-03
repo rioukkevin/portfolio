@@ -85,6 +85,7 @@ export default {
         easing: 'easeOutExpo',
         complete: () => {
           this.$refs.miniature.style.opacity = "1"
+          this.$cursor.class = 'black'
         }
       })
     },
@@ -93,6 +94,7 @@ export default {
       f.style.backgroundColor = '#000'
       f.style.left = '-102vw'
       f.style.top = '0'
+      this.$cursor.class = 'blank'
       anime({
         targets: f,
         left: '0',

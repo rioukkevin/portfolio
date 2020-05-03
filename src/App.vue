@@ -37,6 +37,8 @@ html{
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   background-color: rgb(235,235,235);
+  position: absolute;
+  top: 0;
 }
 
 ::-webkit-scrollbar-track {

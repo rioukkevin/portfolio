@@ -1,5 +1,5 @@
 <template>
-  <div class="cursor_contain" :class="'cursor_'+type">
+  <div class="cursor_contain" :class="cursorClass">
     <div class="follow" ref="follow">
       <div class="back"></div>
     </div>
@@ -18,6 +18,7 @@ export default {
   data() {
     return {
       type: 'blank',
+      class: 'blank',
       match: {
         'blank': 'blank',
         'experience': 'experiment',
@@ -36,6 +37,8 @@ export default {
         'link': 'link',
         'text':'blank',
         'contact': 'plus',
+        'close': 'close',
+        'download': 'download',
       }
     }
   },
@@ -54,14 +57,21 @@ export default {
   beforeRouteLeave (to, from, next) {
     window.removeEventListener('mousemove', this.cursorMove);
     this.$cursor.type = "blank"
+    this.$cursor.class = "blank"
     next()
   },
   watch: {
     '$cursor.type': function () {
       this.type = this.$cursor.type
+    },
+    '$cursor.class': function () {
+      this.class = this.$cursor.class
     }
   },
   computed: {
+    cursorClass(){
+      return ['cursor_'+this.type, 'cursor_'+this.class]
+    },
     icon() {
       return this.match[this.type] 
     }
@@ -147,7 +157,23 @@ export default {
   }
 
   .cursor_contain{
-    &.cursor_link, &.cursor_project, &.cursor_play, &.cursor_email, &.cursor_tel, &.cursor_left, &.cursor_right, &.cursor_send, &.cursor_instagram, &.cursor_linkedin, &.cursor_github, &.cursor_more, &.cursor_search, &.cursor_experience, &.cursor_contact{
+    &.cursor_link, 
+    &.cursor_project, 
+    &.cursor_play, 
+    &.cursor_email, 
+    &.cursor_tel, 
+    &.cursor_left, 
+    &.cursor_right, 
+    &.cursor_send, 
+    &.cursor_instagram, 
+    &.cursor_linkedin, 
+    &.cursor_github, 
+    &.cursor_more, 
+    &.cursor_search, 
+    &.cursor_experience, 
+    &.cursor_contact,
+    &.cursor_download,
+    &.cursor_close{
       .pointer{
         width: 50px;
         height: 50px;
@@ -172,6 +198,18 @@ export default {
       }
       .back{
         box-shadow: inset 0 0 0 70px rgba(255,255,255,1);
+      }
+    }
+    &.cursor_black{
+      .pointer{
+        background-color: black;
+        
+        i svg path{
+          fill: white !important;
+        }
+      }
+      .back{
+        box-shadow: inset 0 0 0 70px rgba(40,40,40,1);
       }
     }
     &.cursor_text{

@@ -16,7 +16,7 @@ export default {
       }
     })
 
-    Vue.prototype.$cursor = Vue.observable({ type: "blank"})
+    Vue.prototype.$cursor = Vue.observable({ type: "blank", class: "blank"})
     Vue.directive('cursor', {
       bind: function (el, binding) {
         let enter = function(){
@@ -27,6 +27,14 @@ export default {
           Vue.prototype.$cursor.type = 'blank'
         }
         el.addEventListener('mouseleave', leave)
+      }
+    })
+    // v-src="{time: 1000, src: ''}"
+    Vue.directive('src', {
+      bind: function (el, binding) {
+        setTimeout(() => {
+          el.src = binding.value.src
+        }, binding.value.time);
       }
     })
   }
