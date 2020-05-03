@@ -90,7 +90,6 @@
         transform: scale(1.7);
         z-index: 3;
         transition-delay: 300ms;
-        background-color: rgba(255,0,0,1);
       }
 
       img{
