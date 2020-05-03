@@ -3,7 +3,7 @@ export default {
     perso2020: {
       title: "Site Web personnel 2020",
       description: "C'est le site web sur lequel vous êtes actuellement. Je refais mon site web en 2020 pour deux raisons: premièrement, j'ai appris à travailler avec des nouvelles technologies (Vue) autant en profiter et secondo je suis devenu Freelance, il fallait donc mettre à jour mon portfolio :P",
-      job: "Fullstack web development",
+      job: "Dev Fullstack",
       technologies: [
         "Vuejs",
         "PWA",
@@ -37,7 +37,7 @@ export default {
     perso2019: {
       title: "Site Web personnel 2019",
       description: "Ceci est un petit site web que j'ai développé pour me présenter",
-      job: "Fullstack web development",
+      job: "Dev Fullstack",
       technologies: [
         "NodeJS",
         "Ejs",
@@ -68,7 +68,7 @@ export default {
     greevel: {
       title: "Greevel - Eco mobility project",
       description: 'Greevel est une application faites pendant "L\'english week" en M1 à MyDigitalSchool...',
-      job: "Front web development",
+      job: "Dev Front",
       technologies: [
         "VueJS",
         "PWA",
@@ -100,7 +100,7 @@ export default {
     pasquierFramework: {
       title: "Framework Web Pasquier",
       description: "Développement avec les guidelines d'un UX designer d'un framework web chez Pasquier. Basé sur le framework VueJS avec la librairie Vuetify, ce framework permet une harmonisation des applications au sein du SI Pasquier",
-      job: "Front web development",
+      job: "Dev Front",
       technologies: [
         ""
       ],
