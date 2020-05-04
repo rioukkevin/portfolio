@@ -2,17 +2,17 @@
   <div class="k-detail">
     <a-col :span="4" />
     <a-col :span="8" v-if="data.type == 'left'" class="k-visu" style="padding: 0 40px">
-      <img :src="'/assets/project/'+data.image">
+      <img v-src="{time: 1000, src: '/assets/project/'+data.image}" >
     </a-col>
     <a-col :span="8" v-if="data.type != 'full'" class="k-description" style="padding:40px">
       <h2 class="k-subtitle">{{data.title}}</h2>
       <p>{{ data.description}}</p>
     </a-col>
     <a-col :span="8" v-if="data.type == 'right'" class="k-visu" style="padding: 0 40px">
-      <img :src="'/assets/project/'+data.image" >
+      <img v-src="{time: 1000, src: '/assets/project/'+data.image}" >
     </a-col>
     <a-col :span="16" v-if="data.type == 'full'" class="k-visu-full" style="padding: 0 40px">
-      <img :src="'/assets/project/'+data.image" >
+      <img v-src="{time: 1000, src: '/assets/project/'+data.image}" >
     </a-col>
     <a-col :span="4" />
   </div>
@@ -90,7 +90,6 @@
         transform: scale(1.7);
         z-index: 3;
         transition-delay: 300ms;
-        background-color: rgba(255,0,0,1);
       }
 
       img{

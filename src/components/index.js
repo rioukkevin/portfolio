@@ -27,7 +27,7 @@ import KPalette from './data/Palette'
 import KXp from './data/Xp'
 
 
-export default function (Vue) {
+export default async function (Vue) {
   // Ant
   Vue.component('a-button', Button)
   Vue.component('a-icon', Icon)

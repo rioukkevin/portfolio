@@ -7,7 +7,6 @@ import './styles/font.scss'
 import directives from './libs/directives'
 import VueMeta from 'vue-meta'
 import VueScreenSize from 'vue-screen-size'
-// import './libs/matomo'
 import vuetwemoji from 'vue-twemoji'
 
 Vue.use(vuetwemoji, [{
