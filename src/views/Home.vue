@@ -3,18 +3,18 @@
     <div class="header" ref="header">
       <k-who :scroll="scroll"/>
     </div>
-    <h1 class="title-home" ref="title1" :style="{'--indent': (((scroll-1000)/4)*1) + 'px'}">Mon travail</h1>
+    <h1 class="title-home">Mon travail</h1>
     <k-project-list />
-    <h1 class="title-home" ref="title2" :style="{'--indent': (((scroll-4000)/3)*1) + 'px'}">Ce que j'écoute</h1>
+    <h1 class="title-home">Ce que j'écoute</h1>
     <div class="zik">
       <k-music />
     </div>
-    <h1 class="title-home" ref="title3" :style="{'--indent': (((scroll-4000)/3)*1) + 'px'}">Mes expériences</h1>
+    <h1 class="title-home">Mes expériences</h1>
     <div class="experiences">
       <k-xp />
     </div>
     <div class="footer">
-      <h1 class="title-home" ref="title4" :style="{'--indent': (((scroll-1000)/3)*-1) + 'px'}">Un peu plus d'infos</h1>
+      <h1 class="title-home">Un peu plus d'infos</h1>
       <k-footer />
     </div>
   </div>
@@ -39,12 +39,6 @@ export default {
   created () {
     window.addEventListener('scroll', this.onScroll);
   },
-  mounted () {
-    this.repeatTitle(this.$refs.title1)
-    this.repeatTitle(this.$refs.title2)
-    this.repeatTitle(this.$refs.title3)
-    this.repeatTitle(this.$refs.title4)
-  },
   destroyed () {
     window.removeEventListener('scroll', this.onScroll);
   },
@@ -68,19 +62,19 @@ export default {
       {property: 'og:type', content: 'website'},
       {property: 'og:url', content: 'https://kevin.riou.pro'},
       {property: 'og:image', content: 'https://kevin.riou.pro/assets/me/mini.png'},
-      {property: 'og:description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon prfil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
+      {property: 'og:description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon profil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
 
       // Twitter card
       {name: 'twitter:card', content: 'summary'},
       {name: 'twitter:site', content: 'https://kevin.riou.pro'},
       {name: 'twitter:title', content: 'RIOU Kevin - Portfolio 😎'},
-      {name: 'twitter:description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon prfil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
+      {name: 'twitter:description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon profil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
       {name: 'twitter:creator', content: '@RiouKevin6'},
       {name: 'twitter:image:src', content: 'https://kevin.riou.pro/assets/me/mini.png'},
 
       // Google / Schema.org markup:
       {itemprop: 'name', content: 'RIOU Kevin - Portfolio 😎'},
-      {itemprop: 'description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon prfil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
+      {itemprop: 'description', content: 'I am Groot. Ce Site web est mon portfolio est le point d\'entrée vers mon profil pour le freelance. Vous pouvez me contacter pour avoir un peu plus d\'informations sur moi'},
       {itemprop: 'image', content: 'https://kevin.riou.pro/assets/me/mini.png'}
     ]
   }
@@ -112,7 +106,7 @@ export default {
       white-space: nowrap;
       max-width: 100vw;
       font-weight: bold;
-      text-indent: var(--indent);
+      text-align: center;
       letter-spacing: 15px;
       margin-top: 250px;
       margin-bottom: 100px;
@@ -143,10 +137,6 @@ export default {
     .header{
       min-height: 100vh;
       width: 100%;
-    }
-    .zik{
-      position: relative;
-      // TODO work on style musique
     }
     .footer{
       min-height: 100vh;

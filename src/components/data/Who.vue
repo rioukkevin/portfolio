@@ -6,16 +6,16 @@
     <h2 class="k-job">Fullstack web developer</h2>
     <p class="k-description">
       Salut, moi c'est Kévin, je suis un jeune étudiant à MyDigitalSchool travaillant en alternance dans l'entreprise Pasquier et en Freelance à mon compte. N'hésitez pas à vous balader sur mon site pour voir quelques réalisations que j'ai faites.
-      <a-button id="addContact" v-cursor="'contact'" @click="vcard = true">
+      <a-button id="addContact" class="k-button" v-cursor="'contact'" @click="vcard = true">
         Ajouter le contact
       </a-button>
     </p>
     <span class="k-punchline">Have a nice day and be happy</span>
-    <img src="/assets/me/head3.webp" loading="lazy" class="k-me" :style="{right: (scroll/6) + 'px'}">
+    <img src="/assets/me/head3.webp" loading="lazy" class="k-me" :style="{right: (scroll/12) + 'px'}">
     <div class="k-social">
       <a href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">Email</a>
       <a href="tel:+33618260849" v-cursor="'tel'">Tèl</a>
-      <a target="_blank" href="https://www.instagram.com/kevinrioudev/" v-cursor="'instagram'">Instagram</a>
+      <a target="_blank" href="https://www.instagram.com/rioukkevin/" v-cursor="'instagram'">Instagram</a>
       <a target="_blank" href="https://www.linkedin.com/in/k%C3%A9vinriou/" v-cursor="'linkedin'">Linkedin</a>
       <a target="_blank" href="https://github.com/rioukkevin" v-cursor="'github'">Git</a>
     </div>
@@ -62,6 +62,7 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../../styles/variable.scss';
 
   .k-who{
     text-align: left;
@@ -155,25 +156,7 @@ export default {
     #addContact{
       position: absolute;
       right: 0;
-      bottom: -50px;
-      background-color: transparent;
-      color: white;
-      border-radius: 2px;
-      box-shadow: 5px 5px 0 0 black,
-        inset 5px 5px 0 0 black;
-      padding: 5px 20px;
-      height: auto;
-
-      &:focus{
-        border-color: grey;
-      }
-
-      &:hover{
-        background-color: white;
-        box-shadow: 0 0 0 0 black;
-        border-color: white;
-        color: black;
-      }
+      bottom: -70px;
     }
 
     .k-punchline{
