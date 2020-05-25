@@ -19,10 +19,9 @@ export default {
   methods: {
     async download() {
       this.$cursor.type = "blank"
-      // Download file from url
       let a = document.createElement('a')
       a.href = '/assets/kevin.vcf'
-      a.download = 'kevin.vcf'
+      a.download = 'RIOU-kevin.vcf'
       document.body.append(a)
       a.click()
       a.remove()

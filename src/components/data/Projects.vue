@@ -46,13 +46,16 @@ export default {
     .search{
       cursor: none !important;
       margin-bottom: 40px;
+      margin-top: 40px;
 
       input{
         height: 60px;
-        outline: transparent;
+        border-color: white !important;
+        border-width: 2px;
         padding: 0 50px;
         border-radius: 0;
         font-size: 20px;
+        background-color: transparent;
         cursor: none !important;
       }
 
@@ -60,6 +63,13 @@ export default {
         width: 20px;
         height: 20px;
         margin-right: 50px;
+      }
+
+      &:hover{
+        input{
+          background-color: white;
+          border-color: #F8F301 !important;
+        }
       }
     }
 
