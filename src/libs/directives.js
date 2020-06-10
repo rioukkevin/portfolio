@@ -5,6 +5,12 @@ export default {
         el.style.textTransform = 'uppercase';
       }
     })
+    
+    Vue.directive('title', {
+      bind: function (el) {
+        el.style.fontFamily = 'Solena';
+      }
+    })
 
     Vue.directive('twemoji', {
       bind: function (el) {

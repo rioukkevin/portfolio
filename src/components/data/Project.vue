@@ -1,7 +1,7 @@
 <template>
-  <div class="k-project" v-cursor="'project'">
+  <div class="k-new-project" v-cursor="'project'" :style="{'--background': 'url(/assets/project/'+data.id+'/tile.webp'}">
     <div class="overlay" ref="overlay" :style="{'--color':color}" @click="animation_open">
-      <h1>{{data.title || ''}}</h1>
+      <h1 v-title >{{data.title || ''}}</h1>
       <h2>{{data.job}}</h2>
       <p>{{data.description || ''}}</p>
     </div>
@@ -27,14 +27,29 @@ export default {
 </script>
 
 <style lang="scss">
-  .k-project{
+  .k-new-project{
+    width: 600px;
+    height: 600px;
+    background-color: yellow;
+    background-image: var(--background);
+    box-shadow: inset 0 0 0 20px #333;
+    transition-duration: 300ms;
+    background-size: auto 100%;
+    background-position: center center;
+    transition-delay: 0ms;
+
+    &:hover{
+      transition-delay: 30ms;
+      box-shadow: inset 0 0 0 0 #333;
+      background-size: auto 150%;
+    }
 
     .overlay{
       width: calc(100% - 40px);
       height: calc(100% - 40px);
       border-radius: 2px;
       background-color: rgba(0,0,0,0.2);
-      position: absolute;
+      position: relative;
       top: 20px;
       left: 20px;
       padding: 40px;
@@ -76,13 +91,14 @@ export default {
         white-space: nowrap;
         left: 50px;
         width: calc(100% - 100px);
+        max-width: calc(100% - 100px);
         top: 50px;
         font-size: 25px;
         font-weight: bold;
         color: white;
         opacity: 1;
         transition-duration: 500ms;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         text-align: left;
         z-index: 2;
 

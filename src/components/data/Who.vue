@@ -1,12 +1,12 @@
 <template>
   <div class="k-who">
-    <k-vcard v-model="vcard" />
+    <k-vcard v-model="vcard" v-if="!isMobile" />
     <k-logo :size="[50,50]" :fill="rainbow" :r="2" :k="2" />
     <div ref="name" class="k-name-container">RIOU KEVIN</div>
-    <h2 class="k-job">Fullstack web developer</h2>
+    <h2 class="k-job" v-title>Développeur web en freelance</h2>
     <p class="k-description">
       Salut, moi c'est Kévin, je suis un jeune étudiant à MyDigitalSchool travaillant en alternance dans l'entreprise Pasquier et en Freelance à mon compte. N'hésitez pas à vous balader sur mon site pour voir quelques réalisations que j'ai faites.
-      <a-button id="addContact" class="k-button" v-cursor="'contact'" @click="vcard = true">
+      <a-button id="addContact" class="k-button" v-cursor="'contact'" @click="getContact">
         Ajouter le contact
       </a-button>
     </p>
@@ -25,13 +25,14 @@
 <script>
 import mixinRainbow from '@mixins/rainbow.animation'
 import animation from '@mixins/who.animation'
+import isMobileMixin from '@mixins/mobile'
 
 export default {
-  mixins: [mixinRainbow,animation],
+  mixins: [mixinRainbow,animation,isMobileMixin],
   props: {
     scroll: {
       type: Number,
-      default: 0 
+      default: 0
     },
   },
   data() {
@@ -39,23 +40,40 @@ export default {
       vcard: false
     }
   },
-  mounted () {
-    let name = this.$refs.name.textContent
-    let container_letter = this.$refs.name
-    this.$refs.name.innerHTML = ""
-    const number = 5
-    for (let ind = 0; ind < name.length; ind++) {
-      const l = name[ind]
-      const color = "rgb(toto,toto,toto)"
-      const line = document.createElement('div')
-      line.classList.add('line_letter')
-      line.innerHTML='<span class="l" style="color:'+color.replace(/toto/g,'255')+';z-index:'+(number+1)+'">'+ l +'</span>'
-      for (let index = 0; index < number; index++) {
-        let col = 100 - ((100/(number - 2))*index)
-        line.insertAdjacentHTML('beforeend','<span class="l" style="color:'+color.replace(/toto/g,col)+';z-index:'+(number - (index))+'">'+ l +'</span>')
-        line.insertAdjacentHTML('afterbegin','<span class="l" style="color:'+color.replace(/toto/g,col)+';z-index:'+(number - (index))+'">'+ l +'</span>')  
+  methods: {
+    getContact() {
+      if(!this.isMobile){
+        this.vcard = true
+      }else{
+        let a = document.createElement('a')
+        a.href = '/assets/kevin.vcf'
+        a.download = 'RIOU-kevin.vcf'
+        document.body.append(a)
+        a.click()
+        a.remove()
       }
-      container_letter.insertAdjacentHTML('beforeend','<div class="k-name-line" style="margin-left:'+(Math.random() * 100)+'px">'+line.innerHTML+'</div>') 
+    }
+  },
+  mounted () {
+    if(!this.isMobile){
+      let name = this.$refs.name.textContent
+      let container_letter = this.$refs.name
+      this.$refs.name.innerHTML = ""
+      const number = 5
+      for (let ind = 0; ind < name.length; ind++) {
+        const l = name[ind]
+        const color = "rgb(toto,toto,toto)"
+        const line = document.createElement('div')
+        line.classList.add('line_letter')
+        line.innerHTML='<span class="l" style="color:'+color.replace(/toto/g,'255')+';z-index:'+(number+1)+'">'+ l +'</span>'
+        for (let index = 0; index < number - 1; index++) {
+          let col = 151 - ((100/(number - 2))*index)
+          line.insertAdjacentHTML('beforeend','<span class="l" style="color:'+color.replace(/toto/g,col)+';z-index:'+(number - (index))+'">'+ l +'</span>')
+          line.insertAdjacentHTML('afterbegin','<span class="l" style="color:'+color.replace(/toto/g,col)+';z-index:'+(number - (index))+'">'+ l +'</span>')  
+        }
+        const space = this.isMobile ? 35 : 100
+        container_letter.insertAdjacentHTML('beforeend','<div class="k-name-line" style="margin-left:'+(Math.random() * space)+'px">'+line.innerHTML+'</div>') 
+      }
     }
   },
 }
@@ -63,6 +81,64 @@ export default {
 
 <style lang="scss">
   @import '../../styles/variable.scss';
+
+  .k-mobile{
+    .k-who{
+      .k-logo{
+        left: inherit;
+        top: 25vh;
+        right: 0;
+        width: 55vh;
+        height: 55vh;
+        z-index: 3;
+        position: absolute;
+      }
+      .k-me{
+        position: relative;
+        height: 65vh;
+      }
+
+      .k-social{
+        right: 15px;
+        flex-direction: column;
+        text-align: right;
+
+        a{
+          padding: 10px;
+
+          &:hover{
+            filter: blur(3px);
+          }
+        }
+      }
+
+      .k-name-container{
+        top: 25px;
+        left: 25px;
+        font-size: 35px;
+        font-weight: 700;
+      }
+
+      .k-job{
+        top: 70px;
+        white-space: nowrap;
+        left: 25px;
+        font-weight: 400;
+      }
+
+      .k-description{
+        max-width: 80vw;
+        right: 10vw;
+        top: inherit;
+        bottom: 25vh;
+
+        #addContact{
+          right: 0;
+          bottom: -10vh;
+        }
+      }
+    }
+  }
 
   .k-who{
     text-align: left;
@@ -74,6 +150,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 100vw;
 
     .k-logo{
       position: fixed;
@@ -101,6 +178,7 @@ export default {
         align-items: center;
         margin: 0;
         transition-duration: 300ms;
+        will-change: margin;
 
         &:hover{
           margin-top: 20px;
@@ -115,28 +193,25 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
-          background-color: #000;
-          box-shadow: 0 0 60px 30px  #000;
+          background-color: #333;
+          box-shadow: 0 0 60px 30px #333;
           transition-duration: 250ms;
-
-          &:hover{
-            filter: blur(5px);
-          }
+          opacity: 0.75;
         }
       }
     }
 
     .k-job{
-      font-size: 25px;
+      font-size: 35px;
       font-weight: 100;
       color: inherit;
       z-index: 20;
       animation: inScale 500ms forwards;
       position: absolute;
-      top: 50%;
+      top: calc(50% - 20px);
       right: 300px;
       font-weight: 700;
-      text-shadow: 0px 0px 20px #000000;
+      text-shadow: 0px 0px 20px #333;
     }
 
     .k-description{
@@ -151,13 +226,15 @@ export default {
       text-align: right;
       text-shadow: 0px 0px 20px #000000;
       animation: inScale 500ms forwards;
+
+      #addContact{
+        position: absolute;
+        right: 0;
+        bottom: -70px;
+      }
     }
 
-    #addContact{
-      position: absolute;
-      right: 0;
-      bottom: -70px;
-    }
+    
 
     .k-punchline{
       font-size: 16px;
