@@ -7,8 +7,11 @@
 </template>
 
 <script>
+  import isMobileMixin from '@mixins/mobile'
+
   export default {
     name: 'k-tile',
+    mixins: [isMobileMixin],
     props: {
       width: {
         type: Number,

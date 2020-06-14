@@ -1,10 +1,10 @@
 <template>
-  <div id="app" ref="app">
-    <k-cursor />
+  <div id="app" ref="app" :class="{'k-mobile': isMobile}">
+    <k-cursor v-if="!isMobile" />
     <router-view/>
-    <div class="dev">
+    <!-- <div class="dev">
       Site web en construction 
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -13,6 +13,11 @@ export default {
   metaInfo: {
     title: 'Portfolio',
     titleTemplate: '%s | RIOU Kévin'
+  },
+  computed: {
+    isMobile() {
+      return this.$vssHeight > this.$vssWidth 
+    }
   },
 }
 </script>
@@ -32,7 +37,8 @@ html{
 }
 
 #app {
-  font-family: 'bigjohn', Helvetica, Arial, sans-serif;
+  font-family: 'akrobat', Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;

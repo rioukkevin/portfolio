@@ -12,8 +12,10 @@ export default{
   },
   methods: {
     animation_move (el) {
-      const tomovecontainer = document.getElementsByClassName('k-name-container')[0]
-      tomovecontainer.style.transform = 'translateY('+((el.y - window.innerHeight / 2) * -0.1)+'px)'
+      if(!this.isMobile){
+        const tomovecontainer = document.getElementsByClassName('k-name-container')[0]
+        tomovecontainer.style.transform = 'translateY('+((el.y - window.innerHeight / 2) * -0.1)+'px)'
+      }
     }
   },
 }

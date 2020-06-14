@@ -3,18 +3,20 @@
     <div class="header" ref="header">
       <k-who :scroll="scroll"/>
     </div>
-    <h1 class="title-home">Mon travail</h1>
-    <k-project-list />
-    <h1 class="title-home">Ce que j'écoute</h1>
+    <h1 class="title-home" v-title>Mon travail</h1>
+    <div class="projects-list">
+      <k-project-list />
+    </div>
+    <h1 class="title-home" v-title>Ce que j'écoute</h1>
     <div class="zik">
       <k-music />
     </div>
-    <h1 class="title-home">Mes expériences</h1>
+    <h1 class="title-home" v-title>Mes expériences</h1>
     <div class="experiences">
       <k-xp />
     </div>
     <div class="footer">
-      <h1 class="title-home">Un peu plus d'infos</h1>
+      <h1 class="title-home" v-title>Un peu plus d'infos</h1>
       <k-footer />
     </div>
   </div>
@@ -82,7 +84,32 @@ export default {
 </script>
 
 <style lang="scss">
+  .k-mobile{
+    .home{
+      h1.title-home{
+        font-size: 24px;
+        margin-top: 15vh;
+        margin-bottom: 7vh;
+
+        &::before, &::after{
+          height: 4px;
+          box-shadow: 0 0 36px 25px #333;
+        }
+        &::before{
+          left: 0;
+          top: -10px;
+        }
+
+        &::after{
+          right: 0;
+          bottom: -10px;
+        }
+      }
+    }
+  }
+
   .home{
+    max-width: 100vw;
     text-align: center;
     color: #2c3e50;
     min-height: 100%;
@@ -93,8 +120,13 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #000;
+    background-color: #333;
     overflow: hidden;
+
+    .projects-list{
+      background-color: #333;
+      padding: 30px 0;
+    }
 
     h1.title-home{
       text-align: left;
@@ -102,7 +134,6 @@ export default {
       min-width: 100%;
       color: white;
       font-size: 72px;
-      text-transform: uppercase;
       white-space: nowrap;
       max-width: 100vw;
       font-weight: bold;
@@ -121,7 +152,7 @@ export default {
         width: 30%;
         height: 10px;
         position: absolute;
-        box-shadow: 0 0 73px 81px black;
+        box-shadow: 0 0 73px 81px #333;
       }
       &::before{
         left: 0;
