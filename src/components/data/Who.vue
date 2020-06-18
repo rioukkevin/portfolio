@@ -15,7 +15,7 @@
     <div class="k-social">
       <a href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">Email</a>
       <a href="tel:+33618260849" v-cursor="'tel'">Tèl</a>
-      <a target="_blank" href="https://www.instagram.com/rioukkevin/" v-cursor="'instagram'">Instagram</a>
+      <a target="_blank" href="https://www.instagram.com/riou.pro/" v-cursor="'instagram'">Instagram</a>
       <a target="_blank" href="https://www.linkedin.com/in/k%C3%A9vinriou/" v-cursor="'linkedin'">Linkedin</a>
       <a target="_blank" href="https://github.com/rioukkevin" v-cursor="'github'">Git</a>
     </div>
