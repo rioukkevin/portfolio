@@ -5,6 +5,8 @@ import Button from 'ant-design-vue/lib/button'
 import 'ant-design-vue/lib/button/style/index.css'
 import Icon from 'ant-design-vue/lib/icon'
 import 'ant-design-vue/lib/icon/style/index.css'
+import Carousel from 'ant-design-vue/lib/carousel'
+import 'ant-design-vue/lib/carousel/style/index.css'
 import Row from 'ant-design-vue/lib/row'
 import Col from 'ant-design-vue/lib/col'
 import 'ant-design-vue/lib/grid/style/index.css'
@@ -13,6 +15,7 @@ import 'ant-design-vue/lib/input/style/index.css'
 // Homemade
 import KTile from './core/Tile'
 import KDetail from './core/Detail'
+import KCarousel from './core/Carousel'
 import KCursor from './core/Cursor'
 
 import KLogo from './common/Logo'
@@ -31,6 +34,7 @@ export default async function (Vue) {
   // Ant
   Vue.component('a-button', Button)
   Vue.component('a-icon', Icon)
+  Vue.use(Carousel)
   Vue.component('a-row', Row)
   Vue.component('a-col', Col)
   Vue.use(Input)
@@ -38,6 +42,7 @@ export default async function (Vue) {
   Vue.component('k-tile', KTile)
   Vue.component('k-cursor', KCursor)
   Vue.component('k-detail', KDetail)
+  Vue.component('k-carousel', KCarousel)
   Vue.component('k-logo', KLogo)
   Vue.component('k-vcard', KVCard)
 

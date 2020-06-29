@@ -1,5 +1,5 @@
 <template>
-  <div class="project" ref="projectpage" :style="{'--color':this.$route.params.color}">
+  <div class="project" ref="projectpage" :style="{'--color':this.$route.params.color}" :class="{'k-mobile': isMobile}">
     <div class="prev">
       <a-button type="link" shape="circle" icon="arrow-left" @click="back" class="backBtn" v-cursor="'left'"/>
       <div class="projectSwitch" v-if="side.p" @click="previous" v-cursor="'project'">
@@ -14,22 +14,27 @@
     </h1>
     <a-row>
       <a-col :span="24" class="k-top-project">
-        <a-col :span="4" />
-        <a-col :span="8" style="text-align: justify; padding: 40px">
-          <h2 class="k-subtitle">Technologies</h2>
+        <a-col :xs="1" :lg="4" />
+        <a-col :xs="22" :lg="8" style="text-align: justify; padding: 40px">
+          <h2 class="k-subtitle" v-title>Technologies</h2>
           <div class="k-tech-container">
             <p class="k-tech" v-for="(t,i) in project.technologies" :key="i">{{t}}</p>
           </div>
-          <h2 class="k-subtitle">Introduction</h2>
+          <h2 class="k-subtitle" v-title>Introduction</h2>
           <p>{{ project.description }}</p>
         </a-col>
-        <a-col :span="8" style="text-align: justify; padding: 40px">
+        <a-col :xs="1" :lg="0" />
+        <a-col :xs="1" :lg="0" />
+        <a-col :xs="22" :lg="8" style="text-align: justify; padding: 40px">
           <k-palette :colours="project.colors" />
         </a-col>
-        <a-col :span="4" />
+        <a-col :xs="1" :lg="4" />
       </a-col>
-      <a-col :span="24" v-for="(det,i) in project.details" :key="i" style="text-align: justify; padding: 0 40px">
-        <k-detail :data="det"/>
+      <a-col :span="24">
+        <k-carousel :project="projectId" :imgs="project.imgs"/>
+      </a-col>
+      <a-col :xs="24" :lg="12" v-for="(det,i) in project.details" :key="i" style="text-align: justify">
+        <k-detail :data="det" :color="'#555'"/>
       </a-col>
     </a-row>
     <div class="next">
@@ -44,13 +49,17 @@
 <script>
 import projects from '../services/project'
 import anime from 'animejs/lib/anime.es.js';
+import isMobileMixin from '@mixins/mobile'
 
 export default {
   name: 'home',
+  mixins: [isMobileMixin],
   data() {
     return {
       projectId: "",
-      project: {},
+      project: {
+        imgs: []
+      },
       side : {
         p: null,
         n: null 
@@ -61,8 +70,8 @@ export default {
   computed: {
     styleMiniature() {
       return {
-        'background-image': 'url(/assets/project/'+this.project.id+'/miniature.png' || ''
-      } 
+        'background-image': 'url(/assets/project/'+this.project.id+'/miniature.webp' || ''
+      }
     }
   },
   mounted () {
@@ -194,7 +203,6 @@ export default {
     
 
     .k-subtitle{
-      text-transform: uppercase;
       font-weight: 700;
     }
 
@@ -282,12 +290,6 @@ export default {
       }
     }
 
-    .k-top-project{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
     .k-title{
       color: var(--color);
       font-weight: 700;
@@ -303,6 +305,55 @@ export default {
       .letter{
         display: block;
         letter-spacing: -5px;
+      }
+    }
+  }
+
+  .k-mobile{
+    .k-title{
+      font-size: 50px;
+    }
+
+    .background{
+
+      .miniature{
+        background-size: auto 110%;
+
+        &:hover{
+          background-size: auto 100%;
+        }
+      }
+    }
+
+    .prev, .next{
+      height: 70px;
+
+      .projectSwitch{
+        font-size: 13px;
+      }
+
+      .backBtn{
+        width: 50px;
+        height: 50px;
+        top: 30;
+        left: 0;
+        position: absolute;
+
+        i{
+          width: 25px;
+          height: 25px;
+
+          svg{
+            fill: black;
+            width: 25px;
+            height: 25px;
+            transition-duration: 500ms;
+
+            &:hover{
+              fill: #ff2565;
+            }
+          }
+        }
       }
     }
   }

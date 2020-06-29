@@ -1,5 +1,5 @@
 <template>
-  <div class="k-palette">
+  <div class="k-palette" :class="{'k-mobile': isMobile}">
     <div class="color" v-for="c in colours" :key="c" :style="{'--col':c}">
       <span class="text">{{ c }}</span>
     </div>
@@ -7,7 +7,10 @@
 </template>
 
 <script>
+import isMobileMixin from '@mixins/mobile'
+
 export default {
+  mixins: [isMobileMixin],
   name: 'k-palette',
   props: {
     colours: {
@@ -20,7 +23,7 @@ export default {
 
 <style lang="scss">
   .k-palette{
-
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -55,6 +58,19 @@ export default {
         top: -25px;
         font-size: 25px;
         color: var(--col);
+      }
+    }
+
+    &.k-mobile{
+      .color{
+        width: 70px;
+        height: 70px;
+        margin: 20px;
+
+        .text{
+          top: -15px;
+          font-size: 15px;
+        }
       }
     }
   }
