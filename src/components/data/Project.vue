@@ -4,6 +4,7 @@
       <h1 v-title >{{data.title || ''}}</h1>
       <h2>{{data.job}}</h2>
       <p v-if="!isMobile">{{data.description || ''}}</p>
+      <h3>Plus de détails ></h3>
     </div>
   </div>
 </template>
@@ -69,6 +70,7 @@ export default {
             top: -10px;
           }
         }
+
         p{
           opacity: 1;
           transition-delay: 200ms;
@@ -107,6 +109,7 @@ export default {
         transition-duration: 500ms;
         text-align: left;
         z-index: 2;
+        text-shadow: 0px 0px 3px #000;
 
         &::before{
           display: block;
@@ -130,6 +133,17 @@ export default {
         color: white;
         transition-duration: 300ms;
         transition-delay: 200ms;
+        text-shadow: 0px 0px 3px #000;
+      }
+
+      h3{
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+        color: white;
+        transition-duration: 300ms;
+        text-decoration: underline;
+        text-shadow: 0px 0px 2px #000;
       }
 
       p{
@@ -145,10 +159,11 @@ export default {
         opacity: 0;
         transition-duration: 300ms;
         transition-delay: 0;
+        text-shadow: 0px 0px 2px #000;
       }
 
       &.transition-start{
-        h1,h2,p{
+        h1,h2,h3,p{
           opacity: 0;
           transition-duration: 500ms;
         }

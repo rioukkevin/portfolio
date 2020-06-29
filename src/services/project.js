@@ -72,7 +72,7 @@ export default {
       details: [
         {
           title: "I am Groot",
-          description: "toto"
+          description: "toto (Ce n'est pas une erreur)"
         },
         {
           title: "Un projet à durée déterminée",

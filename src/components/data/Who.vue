@@ -7,7 +7,7 @@
     <p class="k-description">
       Salut, moi c'est Kévin, je suis un jeune étudiant à MyDigitalSchool travaillant en alternance dans l'entreprise Pasquier et en Freelance à mon compte. N'hésitez pas à vous balader sur mon site pour voir quelques réalisations que j'ai faites.
       <a-button id="addContact" class="k-button" v-cursor="'contact'" @click="getContact">
-        Ajouter le contact
+        Ajouter aux contacts
       </a-button>
     </p>
     <span class="k-punchline">Have a nice day and be happy</span>
