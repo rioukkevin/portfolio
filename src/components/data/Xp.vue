@@ -8,10 +8,11 @@
 
 <script>
 import data from '@mixins/xp.data'
+import isMobileMixin from '@mixins/mobile'
 
 export default {
   name: 'xp',
-  mixins: [data],
+  mixins: [data, isMobileMixin],
   props: {
     data: {
       type: Object,
@@ -27,7 +28,7 @@ export default {
     rdmtr(index) {
       let random = Math.random() * 200
       index % 2 == 0 ? random*= -1 : random *= 1
-      return 'translateX('+random+'px)'
+      return this.isMobile ? 'translateX(0px)' : 'translateX('+random+'px)'
     }
   },
 }

@@ -1,7 +1,7 @@
 const mobile = {
   computed: {
     isMobile() {
-      return this.$vssHeight > this.$vssWidth 
+      return this.$vssWidth < 700 
     }
   },
 }

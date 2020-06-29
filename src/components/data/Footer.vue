@@ -1,5 +1,5 @@
 <template>
-  <div class="k-footer">
+  <div class="k-footer" :class="{'k-mobile': isMobile}">
     <div class="k-footer-column">
       <!-- I don't use ant design input cause I use netlify form handling, the name attribute is not transmit to html input when using it -->
       <h3 v-title >Pour être informer de mon statut</h3>
@@ -55,10 +55,11 @@
 </template>
 
 <script>
-// import anime from 'animejs/lib/anime.es.js';
+import isMobileMixin from '@mixins/mobile'
 
 export default {
   name: 'contact',
+  mixins: [isMobileMixin],
   data() {
     return {
       formData: {},
@@ -124,7 +125,7 @@ export default {
         color: white;
         font-size: 25px;
         white-space: nowrap;
-        // text-transform: uppercase;
+        margin-bottom: 20px;
       }
 
       a{
@@ -153,6 +154,23 @@ export default {
         border: 0 solid transparent;
         cursor: none !important;
         background-color: white;
+        width: 100px;
+      }
+    }
+
+    &.k-mobile{
+      padding: 20px;
+      .k-footer-column{
+        margin: 30px 0;
+        width: 100%;
+        
+        .k-newsletter{
+          width: calc(100% - 100px);
+        }
+
+        a,p{
+          font-size: 16px;
+        }
       }
     }
   }

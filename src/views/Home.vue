@@ -93,7 +93,7 @@ export default {
 
         &::before, &::after{
           height: 4px;
-          box-shadow: 0 0 36px 25px #333;
+          box-shadow: 0 0 36px 25px #000;
         }
         &::before{
           left: 0;
@@ -120,11 +120,11 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #333;
+    background-color: #000;
     overflow: hidden;
 
     .projects-list{
-      background-color: #333;
+      background-color: #000;
       padding: 30px 0;
     }
 
@@ -152,7 +152,7 @@ export default {
         width: 30%;
         height: 10px;
         position: absolute;
-        box-shadow: 0 0 73px 81px #333;
+        box-shadow: 0 0 73px 81px #000;
       }
       &::before{
         left: 0;

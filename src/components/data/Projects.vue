@@ -22,7 +22,7 @@ export default {
         const res = (num * 600) - 40
         return res + 'px'
       }else{
-        return '50%'
+        return '100%'
       }
     }
   }
@@ -45,8 +45,10 @@ export default {
         cursor: none !important;
         margin-bottom: 40px;
         margin-top: 40px;
+        width: calc(100% - 50px);
 
         input{
+          width: 100%;
           height: 60px;
           border-color: white !important;
           border-width: 2px;
