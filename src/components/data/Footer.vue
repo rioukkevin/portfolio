@@ -2,9 +2,9 @@
   <div class="k-footer" :class="{'k-mobile': isMobile}">
     <div class="k-footer-column">
       <!-- I don't use ant design input cause I use netlify form handling, the name attribute is not transmit to html input when using it -->
-      <h3 v-title >Pour être informer de mon statut</h3>
+      <h3 v-title >Pour être informé de mon statut</h3>
       <p v-twemoji>
-        Vous pouvez me transmettre votre adresse email, je vous enverrais un email lorsque je cherche un job 😜.
+        Vous pouvez me transmettre votre adresse email, je vous enverrai un email lorsque je cherche un job 😜
       </p>
       <form 
         name="newsletter" 
@@ -24,7 +24,7 @@
           v-cursor="'text'"
           placeholder="groot@gardian.galaxy" 
           type="mail" 
-          name="mail" 
+          name="mail"
           class="k-newsletter" 
           v-model="formData.mail"
           required
@@ -41,7 +41,7 @@
         {{ feedback }}
       </p>
     </div>
-    <div class="k-footer-column">
+    <div class="k-footer-column contact">
       <h3 v-title >Contacts</h3>
       <a target="_blank" href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">riou.kkevin@gmail.com</a>
       <a target="_blank" href="tel:+33618260849" v-cursor="'tel'">06.18.26.08.49</a>
@@ -123,7 +123,7 @@ export default {
 
       h3{
         color: white;
-        font-size: 25px;
+        font-size: 30px;
         white-space: nowrap;
         margin-bottom: 20px;
       }
@@ -155,6 +155,12 @@ export default {
         cursor: none !important;
         background-color: white;
         width: 100px;
+      }
+
+      &.contact{
+        a{
+          font-weight: 700;
+        }
       }
     }
 

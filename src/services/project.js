@@ -86,11 +86,14 @@ export default {
     },
     pasquierFramework: {
       title: "Framework Web Pasquier",
-      description: "Développement avec les guidelines d'un UX designer d'un framework web chez Pasquier. Basé sur le framework VueJS avec la librairie Vuetify, ce framework permet une harmonisation des applications au sein du SI Pasquier",
+      description: "Toujours en cours, le contenu arrivera au fil de l'eau! Développement avec les guidelines d'un UX designer d'un framework web chez Pasquier. Basé sur le framework VueJS avec la librairie Vuetify, ce framework permet une harmonisation des applications au sein du SI Pasquier",
       job: "Dev Front",
       imgs: [],
       technologies: [
-        ""
+        "VueJS",
+        "Vuetify",
+        "Sass",
+        "JS"
       ],
       colors: [
         "#172665",
