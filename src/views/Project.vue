@@ -48,7 +48,7 @@
 
 <script>
 import projects from '../services/project'
-import anime from 'animejs/lib/anime.es.js';
+import anime from 'animejs/lib/anime.es.js'
 import isMobileMixin from '@mixins/mobile'
 
 export default {
@@ -204,6 +204,7 @@ export default {
 
     .k-subtitle{
       font-weight: 700;
+      font-size: 35px;
     }
 
     .full{
