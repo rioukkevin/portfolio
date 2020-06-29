@@ -11,7 +11,7 @@
       </a-button>
     </p>
     <span class="k-punchline">Have a nice day and be happy</span>
-    <img src="/assets/me/head3.webp" loading="lazy" class="k-me" :style="{right: (scroll/12) + 'px'}">
+    <img src="/assets/me/head000.webp" loading="lazy" class="k-me" :style="{right: (scroll/12) + 'px'}">
     <div class="k-social">
       <a href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">Email</a>
       <a href="tel:+33618260849" v-cursor="'tel'">Tèl</a>
@@ -124,13 +124,15 @@ export default {
         white-space: nowrap;
         left: 25px;
         font-weight: 400;
+        font-size: 25px;
       }
 
       .k-description{
-        max-width: 80vw;
+        max-width: 70vw;
         right: 10vw;
         top: inherit;
         bottom: 25vh;
+        font-size: 16px;
 
         #addContact{
           right: 0;
@@ -193,8 +195,8 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
-          background-color: #333;
-          box-shadow: 0 0 60px 30px #333;
+          background-color: #000;
+          box-shadow: 0 0 60px 30px #000;
           transition-duration: 250ms;
           opacity: 0.75;
         }
@@ -211,7 +213,7 @@ export default {
       top: calc(50% - 20px);
       right: 300px;
       font-weight: 700;
-      text-shadow: 0px 0px 20px #333;
+      text-shadow: 0px 0px 20px #000;
     }
 
     .k-description{

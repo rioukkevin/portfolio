@@ -1,18 +1,19 @@
 <template>
-  <div class="k-new-project" v-cursor="'project'" :style="{'--background': 'url(/assets/project/'+data.id+'/tile.webp'}">
+  <div class="k-new-project" v-cursor="'project'" :style="{'--background': 'url(/assets/project/'+data.id+'/tile.webp','--size':size}">
     <div class="overlay" ref="overlay" :style="{'--color':color}" @click="animation_open">
       <h1 v-title >{{data.title || ''}}</h1>
       <h2>{{data.job}}</h2>
-      <p>{{data.description || ''}}</p>
+      <p v-if="!isMobile">{{data.description || ''}}</p>
     </div>
   </div>
 </template>
 
 <script>
 import animation from '@mixins/project.animation'
+import isMobileMixin from '@mixins/mobile'
 
 export default {
-  mixins: [animation],
+  mixins: [animation,isMobileMixin],
   props: {
     data: {
       type: Object,
@@ -23,16 +24,21 @@ export default {
       default: () => "white"
     }
   },
+  computed: {
+    size() {
+      return this.isMobile ? '100vw' : '600px' 
+    }
+  },
 }
 </script>
 
 <style lang="scss">
   .k-new-project{
-    width: 600px;
-    height: 600px;
+    width: var(--size);
+    height: var(--size);
     background-color: yellow;
     background-image: var(--background);
-    box-shadow: inset 0 0 0 20px #333;
+    box-shadow: inset 0 0 0 20px #000;
     transition-duration: 300ms;
     background-size: auto 100%;
     background-position: center center;
@@ -40,8 +46,34 @@ export default {
 
     &:hover{
       transition-delay: 30ms;
-      box-shadow: inset 0 0 0 0 #333;
+      box-shadow: inset 0 0 0 0 #000;
       background-size: auto 150%;
+      border: #eaeaea solid 2px;
+
+      .overlay{
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--color);
+
+        h2{
+          top: 40%;
+          transition-delay: 0ms;
+        }
+
+        h1{
+          opacity: 1;
+          top: 30%;
+          &::before{
+            top: -10px;
+          }
+        }
+        p{
+          opacity: 1;
+          transition-delay: 200ms;
+        }
+      }
     }
 
     .overlay{
@@ -59,46 +91,20 @@ export default {
       justify-content: center;
       align-items: center;
       overflow: hidden;
-
-
-      &:hover{
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: var(--color);
-
-        h2{
-          top: 250px;
-          transition-delay: 0ms;
-        }
-
-        h1{
-          opacity: 1;
-          top: 200px;
-          &::before{
-            top: -10px;
-          }
-        }
-        p{
-          opacity: 1;
-          transition-delay: 200ms;
-        }
-      }
+      box-shadow: inset 0 0 0 2px var(--color);
       
       h1{
         position: absolute;
         white-space: nowrap;
-        left: 50px;
-        width: calc(100% - 100px);
-        max-width: calc(100% - 100px);
-        top: 50px;
+        left: 25px;
+        width: calc(100% - 50px);
+        max-width: calc(100% - 50px);
+        top: 25px;
         font-size: 25px;
         font-weight: bold;
         color: white;
         opacity: 1;
         transition-duration: 500ms;
-        // text-transform: uppercase;
         text-align: left;
         z-index: 2;
 
@@ -119,8 +125,8 @@ export default {
 
       h2{
         position: absolute;
-        left: 50px;
-        top: 100px;
+        left: 25px;
+        top: 80px;
         color: white;
         transition-duration: 300ms;
         transition-delay: 200ms;
@@ -128,15 +134,14 @@ export default {
 
       p{
         position: absolute;
-        left: 50px;
-        top: 350px;
+        left: 25px;
+        top: 65%;
         font-size: 20px;
-        width: 500px;
+        width: calc(100% - 50px);
         margin: 0;
         text-align: justify;
         color: white;
         text-align: justify;
-        margin-right: 20px;
         opacity: 0;
         transition-duration: 300ms;
         transition-delay: 0;

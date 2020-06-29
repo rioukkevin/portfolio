@@ -1,5 +1,5 @@
 <template>
-  <div class="k-song">
+  <div class="k-song" :class="{'k-mobile': isMobile}">
     <div class="back">
       <img ref="albumb" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" >
     </div>
@@ -16,10 +16,11 @@
 <script>
 import animation from '@mixins/music.animation'
 import data from '@mixins/music.data'
+import isMobileMixin from '@mixins/mobile'
 
 export default {
   name: 'music',
-  mixins: [animation, data],
+  mixins: [animation, data, isMobileMixin],
   data() {
     return {
       current: 'billy',
@@ -143,6 +144,51 @@ export default {
         &:hover{
           transform: scale(1.2);
           color: white;
+        }
+      }
+    }
+
+    &.k-mobile{
+      height: 600px;
+
+      .music-content{
+        width: 100vw;
+        height: 600px;
+
+        .mini{
+          top: 120px;
+          left: calc(50% - 150px);
+        }
+
+        .song{
+          left: 0px;
+          top: inherit;
+          bottom: 190px;
+          height: 40px;
+          width: 100%;
+          text-align: center;
+        }
+
+        .previous,.next{
+          position: absolute;
+          width: 60px;
+          height: 60px;
+        }
+
+        .previous{
+          bottom: 30px;
+          left: 120px;
+        }
+        .next{
+          bottom: 30px;
+          left: inherit;
+          right: 120px;
+        }
+
+        .listen{
+          top: inherit;
+          bottom: 110px;
+          left: calc(50% - 75px);
         }
       }
     }
