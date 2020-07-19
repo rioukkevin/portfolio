@@ -1,7 +1,7 @@
 <template>
   <div class="tiles" ref="tiles">
     <div class="search" :style="{width:searchWidth}">
-      <a-input-search v-cursor="'text'" v-model="projectFilter" placeholder="Rechercher dans les projets" style="width: 100%" />
+      <v-text-field solo v-cursor="'text'" v-model="projectFilter" placeholder="Rechercher dans les projets" style="width: 100%" class="search-input"/>
     </div>
     <div class="tilescontent">
       <k-project v-for="(p) in projectData" :key="p.id" :data="p" :color="p.colors[0]"/>
@@ -79,7 +79,7 @@ export default {
       margin-bottom: 40px;
       margin-top: 40px;
 
-      input{
+      .v-input__slot{
         height: 60px;
         border-color: white !important;
         border-width: 2px;
@@ -97,9 +97,9 @@ export default {
       }
 
       &:hover{
-        input{
+        .v-input__slot{
           background-color: white;
-          border-color: #F8F301 !important;
+          border: 2px solid #F8F301 !important;
         }
       }
     }

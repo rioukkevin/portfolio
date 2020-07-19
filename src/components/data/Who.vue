@@ -1,17 +1,21 @@
 <template>
   <div class="k-who">
-    <k-vcard v-model="vcard" v-if="!isMobile" />
+    <v-navigation-drawer temporary fixed width="500" v-model="vcard" class="k-vcard">
+      <img src="../../assets/vcard.svg" width="300px" id="k-qr">
+      <v-btn dark class="k-button k-vcard-button" v-cursor="'download'" @click="download">Télécharger</v-btn>
+      <v-btn dark class="k-button k-vcard-button" v-cursor="'close'" @click="vcard = false">Fermer</v-btn>
+    </v-navigation-drawer>
     <k-logo :size="[50,50]" :fill="rainbow" :r="2" :k="2" />
     <div ref="name" class="k-name-container">RIOU KEVIN</div>
     <h2 class="k-job" v-title>Développeur web en freelance</h2>
     <p class="k-description">
       Salut, moi c'est Kévin, je suis un jeune étudiant à MyDigitalSchool travaillant en alternance dans l'entreprise Pasquier et en Freelance à mon compte. N'hésitez pas à vous balader sur mon site pour voir quelques réalisations que j'ai faites.
-      <a-button id="addContact" class="k-button" v-cursor="'contact'" @click="getContact">
+      <v-btn id="addContact" class="k-button" v-cursor="'contact'" @click="getContact">
         Ajouter aux contacts
-      </a-button>
+      </v-btn>
     </p>
     <span class="k-punchline">Have a nice day and be happy</span>
-    <img src="/assets/me/head000.webp" loading="lazy" class="k-me" :style="{right: (scroll/12) + 'px'}">
+    <k-img src="../../assets/me/head000.webp" src-placeholder="../../assets/me/head000.lazy.webp" class="k-me" :style="{right: (scroll/12) + 'px'}" />
     <div class="k-social">
       <a href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">Email</a>
       <a href="tel:+33618260849" v-cursor="'tel'">Tèl</a>
@@ -42,16 +46,15 @@ export default {
   },
   methods: {
     getContact() {
-      if(!this.isMobile){
-        this.vcard = true
-      }else{
-        let a = document.createElement('a')
-        a.href = '/assets/kevin.vcf'
-        a.download = 'RIOU-kevin.vcf'
-        document.body.append(a)
-        a.click()
-        a.remove()
-      }
+      this.vcard = true
+    },
+    download(){
+      let a = document.createElement('a')
+      a.href = '/assets/kevin.vcf'
+      a.download = 'RIOU-kevin.vcf'
+      document.body.append(a)
+      a.click()
+      a.remove()
     }
   },
   mounted () {
@@ -137,6 +140,15 @@ export default {
         #addContact{
           right: 0;
           bottom: -10vh;
+          border-radius: 0px !important;
+          height: 50px !important;
+          cursor: none !important;
+
+          &:hover{
+            span{
+              filter: blur(3px);
+            }
+          }
         }
       }
     }
@@ -153,6 +165,22 @@ export default {
     justify-content: center;
     align-items: center;
     max-width: 100vw;
+
+    .k-vcard{
+      .v-navigation-drawer__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .k-vcard-button{
+          margin: 15px 30px;
+          height: 40px !important;
+          background-color: #000 !important;
+        }
+      }
+    }
 
     .k-logo{
       position: fixed;

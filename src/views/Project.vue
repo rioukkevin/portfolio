@@ -1,7 +1,9 @@
 <template>
   <div class="project" ref="projectpage" :style="{'--color':this.$route.params.color}" :class="{'k-mobile': isMobile}">
     <div class="prev">
-      <a-button type="link" shape="circle" icon="arrow-left" @click="back" class="backBtn" v-cursor="'left'"/>
+      <v-icon @click="back" class="backBtn" v-cursor="'close'">
+        mdi-close
+      </v-icon>
       <div class="projectSwitch" v-if="side.p" @click="previous" v-cursor="'project'">
         Voir le projet {{ side.p.title }}
       </div>
@@ -12,31 +14,32 @@
     <h1 class="k-title" v-uppercase>
       {{ project.title }}
     </h1>
-    <a-row>
-      <a-col :span="24" class="k-top-project">
-        <a-col :xs="1" :lg="4" />
-        <a-col :xs="22" :lg="8" style="text-align: justify; padding: 40px">
-          <h2 class="k-subtitle" v-title>Technologies</h2>
-          <div class="k-tech-container">
-            <p class="k-tech" v-for="(t,i) in project.technologies" :key="i">{{t}}</p>
-          </div>
-          <h2 class="k-subtitle" v-title>Introduction</h2>
-          <p>{{ project.description }}</p>
-        </a-col>
-        <a-col :xs="1" :lg="0" />
-        <a-col :xs="1" :lg="0" />
-        <a-col :xs="22" :lg="8" style="text-align: justify; padding: 40px">
-          <k-palette :colours="project.colors" />
-        </a-col>
-        <a-col :xs="1" :lg="4" />
-      </a-col>
-      <a-col :span="24">
+    <v-row>
+      <v-col cols="12" class="k-top-project">
+        <v-row>
+          <v-col xs="1" lg="2" />
+          <v-col xs="10" lg="4" style="text-align: justify; padding: 40px">
+            <h2 class="k-subtitle" v-title>Technologies</h2>
+            <div class="k-tech-container">
+              <p class="k-tech" v-for="(t,i) in project.technologies" :key="i">{{t}}</p>
+            </div>
+            <h2 class="k-subtitle" v-title>Introduction</h2>
+            <p>{{ project.description }}</p>
+          </v-col>
+          <v-col xs="2" lg="0" cols="0" />
+          <v-col xs="10" lg="4" style="text-align: justify; padding: 40px">
+            <k-palette :colours="project.colors" />
+          </v-col>
+          <v-col xs="1" lg="2" />
+        </v-row>
+      </v-col>
+      <v-col span="12">
         <k-carousel :project="projectId" :imgs="project.imgs"/>
-      </a-col>
-      <a-col :xs="24" :lg="12" v-for="(det,i) in project.details" :key="i" style="text-align: justify">
+      </v-col>
+      <v-col xs="12" lg="6" v-for="(det,i) in project.details" :key="i" style="text-align: justify">
         <k-detail :data="det" :color="'#555'"/>
-      </a-col>
-    </a-row>
+      </v-col>
+    </v-row>
     <div class="next">
       <div class="projectSwitch" v-if="side.n" @click="next" v-cursor="'project'">
         Voir le projet {{ side.n.title }}
@@ -251,19 +254,11 @@ export default {
         left: 0;
         position: absolute;
 
-        i{
-          width: 50px;
-          height: 50px;
+        &::before{
+          font-size: 50px;
 
-          svg{
-            fill: black;
-            width: 50px;
-            height: 50px;
-            transition-duration: 500ms;
-
-            &:hover{
-              fill: #ff2565;
-            }
+          &:hover{
+            color: #ff2565;
           }
         }
       }

@@ -3,14 +3,14 @@
     <div class="k-carousel" ref="myCarousel">
       <div class="k-carousel-content">
         <div class="k-carousel-item" v-for="(img, i) in imgs" :key="i">
-          <img :src="'/assets/project/'+img"/>
+          <k-img :src="'../../assets/project/'+img"/>
         </div>
       </div>
     </div>
     <div class="k-carousel-control">
       <div class="k-carousel-control-indicator" ref="myCarouselIndicator" />
       <div class="k-carousel-control-item" v-for="(img, i) in imgs" :key="i">
-        <img :src="'/assets/project/'+img" @click="goTo(i)"/>
+        <img :src="'../../assets/project/'+img" @click="goTo(i)"/>
       </div>
     </div>
   </div>

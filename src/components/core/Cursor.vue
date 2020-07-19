@@ -5,7 +5,7 @@
     </div>
     <div class="cursor" ref="cursor">
       <div class="pointer">
-        <a-icon v-if="type != 'blank'" :type="icon"/>
+        <v-icon v-if="type != 'blank'"> {{ icon }} </v-icon>
       </div>
     </div>
   </div>
@@ -21,24 +21,24 @@ export default {
       class: 'blank',
       match: {
         'blank': 'blank',
-        'experience': 'experiment',
-        'search': 'zoom-in',
-        'more': 'plus',
-        'project':'eye',
-        'play':'play-circle',
-        'left':'left',
-        'right':'right',
-        'instagram':'instagram',
-        'linkedin':'linkedin',
-        'github':'github',
-        'send':'check',
-        'tel':'phone',
-        'email':'mail',
-        'link': 'link',
+        'experience': 'mdi-flask',
+        'search': 'mdi-magnify',
+        'more': 'mdi-plus',
+        'project':'mdi-open-in-new',
+        'play':'mdi-spotify',
+        'left':'mdi-skip-previous',
+        'right':'mdi-skip-next',
+        'instagram':'mdi-instagram',
+        'linkedin':'mdi-linkedin',
+        'github':'mdi-code-tags',
+        'send':'mdi-send',
+        'tel':'mdi-phone',
+        'email':'mdi-gmail',
+        'link': 'mdi-link',
         'text':'blank',
-        'contact': 'plus',
-        'close': 'close',
-        'download': 'download',
+        'contact': 'mdi-account-plus',
+        'close': 'mdi-close',
+        'download': 'mdi-download',
       }
     }
   },
@@ -202,10 +202,10 @@ export default {
     }
     &.cursor_black{
       .pointer{
-        background-color: black;
+        background-color: #222;
         
-        i svg path{
-          fill: white !important;
+        i::before{
+          color: lightgrey !important;
         }
       }
       .back{

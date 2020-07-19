@@ -8,6 +8,9 @@ import directives from './libs/directives'
 import VueMeta from 'vue-meta'
 import VueScreenSize from 'vue-screen-size'
 import vuetwemoji from 'vue-twemoji'
+import vuetify from './libs/vuetify';
+import 'roboto-fontface/css/roboto/roboto-fontface.css'
+import '@mdi/font/css/materialdesignicons.css'
 
 Vue.use(vuetwemoji, [{
   baseUrl: 'https://twemoji.maxcdn.com/', //can set to local folder of emojis. default: https://twemoji.maxcdn.com/
@@ -24,6 +27,7 @@ Vue.config.productionTip = false
 
 let v = new Vue({
   router,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')
 

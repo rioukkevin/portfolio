@@ -1,15 +1,20 @@
 <template>
-  <div class="k-overlay" v-if="value" ref="vcard">
+  <v-navigation-drawer temporary fixed right v-model="model" class="k-overlay">
     <img src="/assets/vcard.svg" id="k-qr">
-    <a-button class="vcardButton" v-cursor="'download'" @click="download">Télécharger</a-button>
-    <a-button class="vcardButton" v-cursor="'close'" @click="close">Fermer</a-button>
-    <a-button type="link" shape="circle" icon="close" @click="close" class="backBtn" v-cursor="'close'"/>
-  </div>
+    <v-btn class="vcardButton" v-cursor="'download'" @click="download">Télécharger</v-btn>
+    <v-btn class="vcardButton" v-cursor="'close'" @click="close">Fermer</v-btn>
+    <v-icon @click="close" class="backBtn" v-cursor="'close'">mdi-close</v-icon>
+  </v-navigation-drawer>
 </template>
 
 <script>
 
 export default {
+  data() {
+    return {
+      model: false
+    }
+  },
   props: {
     value: {
       type: Boolean,
@@ -27,19 +32,18 @@ export default {
       a.remove()
     },
     async close() {
-      this.$refs.vcard.classList.add('k-close')
-      setTimeout(() => {
-        this.$cursor.type = "blank"
-        this.$cursor.class = 'blank'
-      }, 300)
-      setTimeout(() => {
-        this.$emit('input', false)
-      }, 900);
+      this.model = false
+      // setTimeout(() => {
+      //   this.$cursor.type = "blank"
+      // }, 300)
     }
   },
   watch: {
-    value(val) {
-      val ? this.$cursor.class = 'black' : this.$cursor.class = 'blank' 
+    // value(val) {
+    //   this.model = val
+    // },
+    model(val) {
+      this.$emit('input', val)
     }
   },
 }
@@ -47,20 +51,16 @@ export default {
 
 <style lang="scss">
   .k-overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 1000;
-    opacity: 1;
+    z-index: 1000 !important;
     background-color: white;
-    animation: background 600ms forwards;
-    transition-duration: 600ms;
+    width: 500px !important;
+
+    .v-navigation-drawer__content{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
     .backBtn{
       width: 150px;
@@ -68,26 +68,28 @@ export default {
       top: 0;
       right: 0;
       position: fixed;
+      background-color: red;
 
-      i{
-        width: 50px;
-        height: 50px;
+      // i{
+      //   width: 50px;
+      //   height: 50px;
 
-        svg{
-          fill: black;
-          width: 50px;
-          height: 50px;
-          transition-duration: 500ms;
+      //   svg{
+      //     fill: black;
+      //     width: 50px;
+      //     height: 50px;
+      //     transition-duration: 500ms;
 
-          &:hover{
-            fill: #ff2565;
-          }
-        }
-      }
+      //     &:hover{
+      //       fill: #ff2565;
+      //     }
+      //   }
+      // }
     }
 
     #k-qr{
       width: 300px;
+      height: 300px;
       animation: fade 300ms 600ms forwards;
       opacity: 0;
     }
@@ -116,16 +118,6 @@ export default {
         border-color: white;
         color: black;
       }
-    }
-  }
-  .k-close{
-    transition-delay: 300ms;
-    top: 50%;
-    bottom: 50%;
-    overflow: hidden;
-
-    .backBtn{
-      opacity: 0;
     }
   }
 
