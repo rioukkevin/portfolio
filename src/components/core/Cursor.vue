@@ -5,7 +5,7 @@
     </div>
     <div class="cursor" ref="cursor">
       <div class="pointer">
-        <v-icon v-if="type != 'blank'"> {{ icon }} </v-icon>
+        <v-icon v-if="!icon.includes('blank')"> {{ icon }} </v-icon>
       </div>
     </div>
   </div>

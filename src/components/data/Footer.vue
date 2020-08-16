@@ -20,22 +20,24 @@
             Don’t fill this out: <input name="bot-field" />
           </label>
         </p>
-        <input 
-          v-cursor="'text'"
-          placeholder="groot@gardian.galaxy" 
-          type="mail" 
-          name="mail"
-          class="k-newsletter" 
-          v-model="formData.mail"
-          required
-        />
-        <button 
-          class="k-newsletter-btn" 
-          v-cursor="'send'" 
-          type="submit"
-        >
-          Envoyer
-        </button>
+        <div style="display:flex;justify-content:center;align-items:center">
+          <input
+            v-cursor="'text'"
+            placeholder="groot@gardian.galaxy" 
+            type="mail" 
+            name="mail"
+            class="k-newsletter" 
+            v-model="formData.mail"
+            required
+          />
+          <button 
+            class="k-newsletter-btn" 
+            v-cursor="'send'" 
+            type="submit"
+          >
+            Envoyer
+          </button>
+        </div>
       </form>
       <p v-else>
         {{ feedback }}
@@ -144,6 +146,7 @@ export default {
         width: 300px;
         cursor: none !important;
         border: 0 solid transparent;
+        background-color: white !important;
       }
       .k-newsletter-btn{
         height: 60px;
