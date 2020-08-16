@@ -1,5 +1,5 @@
 <template>
-  <div id="app" ref="app" :class="{'k-mobile': isMobile}">
+  <div id="app" ref="app" :class="{'k-mobile': isMobile}" >
     <k-cursor v-if="!isMobile" />
     <router-view/>
     <!-- <div class="dev">

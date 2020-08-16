@@ -1,10 +1,10 @@
 <template>
   <div class="k-song" :class="{'k-mobile': isMobile}">
     <div class="back">
-      <k-img ref="albumb" class="mini" :src="'../../assets/music/'+ dat.id +'.webp'" />
+      <k-img ref="albumb" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" />
     </div>
     <div class="music-content" >
-      <k-img ref="album" class="mini" :src="'../../assets/music/'+ dat.id +'.webp'" />
+      <k-img ref="album" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" />
       <div class="song" ref="song">{{ dat.title }}</div>
       <v-btn dark class="listen" @click="go(dat.link)" v-cursor="'play'">Ecouter</v-btn>
       <v-btn dark class="next" @click="animation_next" v-cursor="'right'">

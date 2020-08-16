@@ -1,7 +1,7 @@
 <template>
   <div class="k-who">
     <v-navigation-drawer temporary fixed width="500" v-model="vcard" class="k-vcard">
-      <img src="../../assets/vcard.svg" width="300px" id="k-qr">
+      <img src="/assets/vcard.svg" width="300px" id="k-qr">
       <v-btn dark class="k-button k-vcard-button" v-cursor="'download'" @click="download">Télécharger</v-btn>
       <v-btn dark class="k-button k-vcard-button" v-cursor="'close'" @click="vcard = false">Fermer</v-btn>
     </v-navigation-drawer>
@@ -15,7 +15,7 @@
       </v-btn>
     </p>
     <span class="k-punchline">Have a nice day and be happy</span>
-    <k-img src="../../assets/me/head000.webp" src-placeholder="../../assets/me/head000.lazy.webp" class="k-me" :style="{right: (scroll/12) + 'px'}" />
+    <k-img src="/assets/me/head000.webp" src-placeholder="/assets/me/head000.lazy.webp" class="k-me" :style="{right: (scroll/12) + 'px'}" />
     <div class="k-social">
       <a href="mailto:riou.kkevin@gmail.com" v-cursor="'email'">Email</a>
       <a href="tel:+33618260849" v-cursor="'tel'">Tèl</a>
