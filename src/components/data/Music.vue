@@ -1,14 +1,18 @@
 <template>
   <div class="k-song" :class="{'k-mobile': isMobile}">
     <div class="back">
-      <img ref="albumb" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" >
+      <k-img ref="albumb" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" />
     </div>
     <div class="music-content" >
-      <img ref="album" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" >
+      <k-img ref="album" class="mini" :src="'/assets/music/'+ dat.id +'.webp'" />
       <div class="song" ref="song">{{ dat.title }}</div>
-      <a-button type="primary" class="listen" @click="go(dat.link)" v-cursor="'play'">Ecouter</a-button>
-      <a-button type="icon" icon="right" class="next" @click="animation_next" v-cursor="'right'"></a-button>
-      <a-button type="icon" icon="left" class="previous" @click="animation_previous" v-cursor="'left'"></a-button>
+      <v-btn dark class="listen" @click="go(dat.link)" v-cursor="'play'">Ecouter</v-btn>
+      <v-btn dark class="next" @click="animation_next" v-cursor="'right'">
+        <v-icon>mdi-skip-next</v-icon>
+      </v-btn>
+      <v-btn dark class="previous" @click="animation_previous" v-cursor="'left'">
+        <v-icon>mdi-skip-previous</v-icon>
+      </v-btn>
     </div>
   </div>
 </template>
@@ -102,10 +106,10 @@ export default {
 
       .previous,.next{
         position: absolute;
-        width: 40px;
-        height: 40px;
+        width: 40px !important;
+        height: 40px !important;
         border: 0px solid red;
-        background-color: #1db954;
+        background-color: #1db954 !important;
         border-radius: 0;
         transition-duration: 400ms;
 
@@ -120,21 +124,21 @@ export default {
 
       .previous{
         bottom: 30px;
-        left: 150px;
+        left: 90px;
       }
       .next{
         bottom: 30px;
-        left: 210px;
+        left: 250px;
       }
 
       .listen{
         position: absolute;
         top: 160px;
         left: 300px;
-        height: 50px;
+        height: 50px !important;
         width: 150px;
         border: 0px solid red;
-        background-color: #1db954;
+        background-color: #1db954 !important;
         color: white;
         box-shadow: none;
         border-radius: 0;

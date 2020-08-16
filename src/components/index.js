@@ -1,17 +1,5 @@
 // component register
-// Ant
-import 'ant-design-vue/lib/style/index.css'
-import Button from 'ant-design-vue/lib/button'
-import 'ant-design-vue/lib/button/style/index.css'
-import Icon from 'ant-design-vue/lib/icon'
-import 'ant-design-vue/lib/icon/style/index.css'
-import Carousel from 'ant-design-vue/lib/carousel'
-import 'ant-design-vue/lib/carousel/style/index.css'
-import Row from 'ant-design-vue/lib/row'
-import Col from 'ant-design-vue/lib/col'
-import 'ant-design-vue/lib/grid/style/index.css'
-import Input from 'ant-design-vue/lib/input'
-import 'ant-design-vue/lib/input/style/index.css'
+import VLazyImage from "v-lazy-image"
 // Homemade
 import KTile from './core/Tile'
 import KDetail from './core/Detail'
@@ -31,14 +19,8 @@ import KXp from './data/Xp'
 
 
 export default async function (Vue) {
-  // Ant
-  Vue.component('a-button', Button)
-  Vue.component('a-icon', Icon)
-  Vue.use(Carousel)
-  Vue.component('a-row', Row)
-  Vue.component('a-col', Col)
-  Vue.use(Input)
   // HomeMade
+  Vue.component('k-img', VLazyImage)
   Vue.component('k-tile', KTile)
   Vue.component('k-cursor', KCursor)
   Vue.component('k-detail', KDetail)

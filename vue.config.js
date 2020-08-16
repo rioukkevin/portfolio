@@ -2,6 +2,14 @@ const path = require('path')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 
 module.exports = {
+  "transpileDependencies": [
+    "vuetify"
+  ],
+  // chainWebpack: config => {
+  //   config.plugin('VuetifyLoaderPlugin').tap(() => [{
+  //     progressiveImages: true
+  //   }])
+  // },
   configureWebpack: config => {
     config.resolve.alias = {
       "@": path.resolve(__dirname, "src"),

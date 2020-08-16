@@ -16,7 +16,7 @@
       <k-xp />
     </div>
     <div class="footer">
-      <h1 class="title-home" v-title>Un peu plus d'infos</h1>
+      <h1 class="title-home" v-title>Contacts</h1>
       <k-footer />
     </div>
   </div>
@@ -84,12 +84,14 @@ export default {
 </script>
 
 <style lang="scss">
+
   .k-mobile{
     .home{
       h1.title-home{
         font-size: 24px;
         margin-top: 15vh;
         margin-bottom: 7vh;
+        -webkit-font-smoothing: antialiased;
 
         &::before, &::after{
           height: 4px;
@@ -133,7 +135,7 @@ export default {
       position: relative;
       min-width: 100%;
       color: white;
-      font-size: 72px;
+      font-size: 124px;
       white-space: nowrap;
       max-width: 100vw;
       font-weight: bold;
@@ -144,16 +146,16 @@ export default {
       z-index: 1;
       pointer-events: none !important;
 
-      &::before, &::after{
-        content: '';
-        display: block;
-        z-index: 2;
-        background-color: rgba(200,200,200,1);
-        width: 30%;
-        height: 10px;
-        position: absolute;
-        box-shadow: 0 0 73px 81px #000;
-      }
+      // &::before, &::after{
+      //   content: '';
+      //   display: block;
+      //   z-index: 2;
+      //   background-color: rgba(200,200,200,1);
+      //   width: 30%;
+      //   height: 4px;
+      //   position: absolute;
+      //   box-shadow: 0 0 73px 81px #000;
+      // }
       &::before{
         left: 0;
         top: -10px;

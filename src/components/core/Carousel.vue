@@ -3,7 +3,7 @@
     <div class="k-carousel" ref="myCarousel">
       <div class="k-carousel-content">
         <div class="k-carousel-item" v-for="(img, i) in imgs" :key="i">
-          <img :src="'/assets/project/'+img"/>
+          <k-img :src="'/assets/project/'+img"/>
         </div>
       </div>
     </div>
