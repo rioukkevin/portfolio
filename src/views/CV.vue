@@ -103,6 +103,7 @@
     },
     mounted () {
       projects.list().map(el => this.projects.push({id: el, ...projects.get(el)}))
+      this.$cursor.type = 'no'
     },
   }
 </script>
