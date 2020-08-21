@@ -315,6 +315,7 @@
               margin-top: 8px;
               color: var(--project-color);
               text-decoration: none;
+              white-space: nowrap;
             }
           }
 
