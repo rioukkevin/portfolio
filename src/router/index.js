@@ -26,6 +26,14 @@ const routes = [
     meta: {
       analyticsIgnore: true
     }
+  },
+  {
+    path: '/cv',
+    name: 'cv',
+    component: () => import(/* webpackChunkName: "redirect" */ '../views/CV.vue'),
+    meta: {
+      analyticsIgnore: true
+    }
   }
 ]
 
