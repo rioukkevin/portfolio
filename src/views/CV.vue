@@ -1,5 +1,25 @@
 <template>
   <div class="k-cv-container">
+    <v-snackbar
+      dark
+      v-model="snackbar"
+      :timeout="100000"
+      left
+      top
+    >
+      Pour télécharger une version pdf de mon CV cliquez sur le bouton suivant
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          style="margin: 0 20px"
+          color="white"
+          text
+          v-bind="attrs"
+          @click="download"
+        >
+          Télécharger
+        </v-btn>
+      </template>
+    </v-snackbar>
     <div class="k-cv">
       <p class="k-cv-punchline" v-title>Have a nice day and be happy</p>
       <div class="k-cv-me">
@@ -69,6 +89,7 @@
   export default {
     data() {
       return {
+        snackbar: true,
         keys: [
           'Front',
           'Back',
@@ -104,6 +125,16 @@
     mounted () {
       projects.list().map(el => this.projects.push({id: el, ...projects.get(el)}))
       this.$cursor.type = 'no'
+    },
+    methods: {
+      download(){
+        let a = document.createElement('a')
+        a.href = '/assets/cv/CV_RIOU_Kevin.pdf'
+        a.download = 'CV_RIOU_Kevin.pdf'
+        document.body.append(a)
+        a.click()
+        a.remove()
+      }
     },
   }
 </script>
