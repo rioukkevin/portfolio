@@ -11,7 +11,8 @@
         <div class="k-cv-header">
           <p class="k-cv-name">RIOU Kevin</p>
           <p class="k-cv-titre" v-title><span>Développeur</span> <span>&nbsp;Web</span></p>
-          <a class="k-cv-link" href="https://kevin.riou.pro">https://kevin.riou.pro</a>
+          <a class="k-cv-link" href="https://github.com/rioukkevin"><v-icon dark small>mdi-github</v-icon> rioukkevin</a>
+          <a class="k-cv-link" href="https://www.linkedin.com/in/k%C3%A9vinriou/"><v-icon dark small>mdi-linkedin</v-icon> kévinriou</a>
         </div>
       </div>
       <div class="k-cv-contact">
@@ -195,12 +196,14 @@
             background-color: #F8F301;
             padding: 0 6px;
           }
+          margin-bottom: 20px;
         }
         .k-cv-link{
           display: block;
-          margin-top: 25px;
           font-size: 15px;
           color: white;
+          text-decoration: none;
+          margin: 7px;
         }
       }
     }
