@@ -1,7 +1,7 @@
 <template>
   <div class="k-cv-container">
     <div class="k-cv">
-      <p class="k-cv-punchline" v-title>Have an nice day and be happy</p>
+      <p class="k-cv-punchline" v-title>Have a nice day and be happy</p>
       <div class="k-cv-me">
         <div class="k-cv-logo">
           <k-logo :r="1.5" :k="0" fill="#F8F301" class="k-cv-r"/>
@@ -311,6 +311,7 @@
               margin-top: 10px;
             }
             a{
+              font-size: 14px;
               display: block;
               margin-top: 8px;
               color: var(--project-color);
