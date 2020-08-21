@@ -79,21 +79,23 @@ export default {
   },
   methods: {
     cursorMove (e) {
-      let follow = this.$refs.follow
-      setTimeout(() => {
-        follow.style.left = e.x + 'px'
-        follow.style.top = e.y + 'px'
-      }, 70);
-      anime({
-        targets: follow,
-        left: e.x,
-        top: e.y,
-        duration: 700,
-        easing: 'easeOutExpo'
-      })
-      let cursor = this.$refs.cursor
-      cursor.style.left = e.x + 'px'
-      cursor.style.top = e.y + 'px'
+      if(!this.icon.includes('no')){
+        let follow = this.$refs.follow
+        setTimeout(() => {
+          follow.style.left = e.x + 'px'
+          follow.style.top = e.y + 'px'
+        }, 70);
+        anime({
+          targets: follow,
+          left: e.x,
+          top: e.y,
+          duration: 700,
+          easing: 'easeOutExpo'
+        })
+        let cursor = this.$refs.cursor
+        cursor.style.left = e.x + 'px'
+        cursor.style.top = e.y + 'px'
+      }
     }
   }
 }
