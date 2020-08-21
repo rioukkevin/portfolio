@@ -15,10 +15,10 @@
       {{ project.title }}
     </h1>
     <v-row>
-      <v-col xs="12" lg="6" style="text-align: justify">
+      <v-col cols="0" md="12" lg="6" style="text-align: justify">
         <div style="display: flex;justify-content: center;align-items: center;">
-          <v-col :xs="0" :lg="1" />
-          <v-col :xs="12" :lg="10" style="padding:40px;margin: 25px 0;">
+          <v-col :cols="0" md="0" :lg="1"  v-if="!$vuetify.breakpoint.mobile"/>
+          <v-col :cols="0" md="12" :lg="10" style="padding:40px;">
             <h2 class="k-subtitle" v-title>Technologies</h2>
             <div class="k-tech-container">
               <v-chip outlined class="k-tech" v-for="(t,i) in project.technologies" :key="i">{{t}}</v-chip>
@@ -26,22 +26,22 @@
             <h2 class="k-subtitle" v-title>Introduction</h2>
             <p>{{ project.description }}</p>
           </v-col>
-          <v-col :xs="0" :lg="1" />
+          <v-col :cols="0" md="0" :lg="1"  v-if="!$vuetify.breakpoint.mobile"/>
         </div>
       </v-col>
-      <v-col xs="12" lg="6" style="text-align: justify; padding: 40px">
+      <v-col cols="0" md="12" lg="6" style="text-align: justify; padding: 40px">
         <div style="display: flex;justify-content: center;align-items: center;">
-          <v-col :xs="0" :lg="1" />
-          <v-col :xs="12" :lg="10" style="padding:40px;margin: 25px 0;">
+          <v-col :cols="0" md="0" :lg="1"  v-if="!$vuetify.breakpoint.mobile"/>
+          <v-col :cols="0" md="12" :lg="10" style="padding:40px;margin: 25px 0;">
             <k-palette :colours="project.colors" />
           </v-col>
-          <v-col :xs="0" :lg="1" />
+          <v-col :cols="0" md="0" :lg="1"  v-if="!$vuetify.breakpoint.mobile"/>
         </div>
       </v-col>
       <v-col cols="12" v-if="project.imgs.length > 0">
         <k-carousel :project="projectId" :imgs="project.imgs"/>
       </v-col>
-      <v-col xs="12" lg="6" v-for="(det,i) in project.details" :key="i" style="text-align: justify">
+      <v-col cols="0" md="12" lg="6" v-for="(det,i) in project.details" :key="i" style="text-align: justify">
         <k-detail :data="det" :color="'#555'"/>
       </v-col>
     </v-row>

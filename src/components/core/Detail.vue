@@ -1,13 +1,13 @@
 <template>
   <div class="k-detail" :style="{'--col': color}">
-    <v-col :xs="0" :lg="1" />
-    <v-col :xs="12" :lg="10" class="k-description" style="padding:40px">
+    <v-col :cols="0" :md="0" :lg="1" v-if="!$vuetify.breakpoint.mobile"/>
+    <v-col :cols="0" :md="12" :lg="10" class="k-description" style="padding:40px">
       <slot>
         <h2 class="k-subtitle" v-title>{{data.title}}</h2>
         <p>{{ data.description}}</p>
       </slot>
     </v-col>
-    <v-col :xs="0" :lg="1" />
+    <v-col :cols="0" :md="0" :lg="1" v-if="!$vuetify.breakpoint.mobile" />
   </div>
 </template>
 
