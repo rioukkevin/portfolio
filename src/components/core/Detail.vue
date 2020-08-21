@@ -1,11 +1,13 @@
 <template>
   <div class="k-detail" :style="{'--col': color}">
-    <a-col :xs="1" :lg="2" />
-    <a-col :xs="22" :lg="20" class="k-description" style="padding:40px">
-      <h2 class="k-subtitle" v-title>{{data.title}}</h2>
-      <p>{{ data.description}}</p>
-    </a-col>
-    <a-col :xs="1" :lg="2" />
+    <v-col :xs="0" :lg="1" />
+    <v-col :xs="12" :lg="10" class="k-description" style="padding:40px">
+      <slot>
+        <h2 class="k-subtitle" v-title>{{data.title}}</h2>
+        <p>{{ data.description}}</p>
+      </slot>
+    </v-col>
+    <v-col :xs="0" :lg="1" />
   </div>
 </template>
 

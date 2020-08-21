@@ -1,9 +1,9 @@
 <template>
   <div class="cursor_contain" :class="cursorClass">
-    <div class="follow" ref="follow">
+    <div class="follow" ref="follow" v-if="!icon.includes('no')">
       <div class="back"></div>
     </div>
-    <div class="cursor" ref="cursor">
+    <div class="cursor" ref="cursor" v-if="!icon.includes('no')">
       <div class="pointer">
         <v-icon v-if="!icon.includes('blank')"> {{ icon }} </v-icon>
       </div>
@@ -20,6 +20,7 @@ export default {
       type: 'blank',
       class: 'blank',
       match: {
+        'no': 'no',
         'blank': 'blank',
         'experience': 'mdi-flask',
         'search': 'mdi-magnify',

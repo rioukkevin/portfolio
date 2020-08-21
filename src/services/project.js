@@ -25,7 +25,7 @@ export default {
         },
         {
           title: "Il ne faut jamais s'arrêter",
-          description: "Ce site web n'est pas encore une Rolls Royce des site web, il y a du travail ! Je travail encore sur le responsive du site, son référencement, son contenu, sa mise en page et très important sur les manières de le développer (Mise en place de HOC). Une fois la plus grosse partie réalisée, les sources seront disponibles sur mon Github pour faciliter la compréhension de celles-ci."
+          description: "Ce site web n'est pas encore une Rolls Royce des sites webs, il y a du travail ! Je travail encore sur le référencement, son contenu, sa mise en page et très important sur les manières de le développer (Mise en place de HOC). Une fois la plus grosse partie réalisée, les sources seront disponibles sur mon Github pour faciliter la compréhension de celles-ci."
         }
       ]
     },
@@ -49,11 +49,15 @@ export default {
       details: [
         {
           title: "Des technologies sympathiques",
-          description: "Mon site web m'a permis de travailler plus avec NodeJS accompagné d'Express et EJS. Le défi de ce site web était de le faire 100% par moi, en réalité c'est 99%, j'utilise une librairie pour l'intégration des icônes dans le très long texte qui parle de moi."
+          description: "Mon site web m'a permis de travailler plus avec NodeJS accompagné d'Express et EJS. Le défi de ce site web était de le faire 100% moi-même, en réalité c'est 99%, j'utilise une librairie pour l'intégration des icônes dans le très long texte qui parle de moi."
         },
         {
           title: "Mais pourquoi ?",
           description: "J'ai développé ce site comme celui sur lequel vous êtes aujourd'hui pour accompagner mon CV, une feuille A4 c'est très limité, souvent il manque des informations, j'ai donc depuis 2016 un site en ligne qui parle de moi. Ce site me sert aussi de 'Sandbox', je teste des technologies (NodeJS), des méthodes (HOC) et toutes les choses qui me passent par la tête sur mon site web. Si ces tests sont concluant je travail avec dans mes missions de freelance"
+        },
+        {
+          title: "Mais on peut le voir ce site ?",
+          description: "Oui, mais il ne faut pas tenir compte de la qualité de celui-ci, des bugs sont apparus depuis son développement, c'est une version obsolète. Vous pouvez le trouver ici: http://v1-kevin.riou.pro/ Et oui, même le certificat SSl n'est plus à jour"
         }
       ]
     },
@@ -101,7 +105,32 @@ export default {
         "#2b9b53",
         "#c22129"
       ],
-      details: []
+      details: [
+        {
+          title: "C'est bien vide ici !",
+          description: "Et oui, malheureusement pour des raisons légales, je n'ai pas mis de captures de ce que je fais chez Pasquier. Je prend les renseignements en ce moment."
+        },
+        {
+          title: "Sur quoi je travail ?",
+          description: "On appelle Framework à Pasquier un ensemble de librairies Npm, le but est de faciliter accélérer au maximum le temps de développement d'une application interne dans l'entreprise."
+        },
+        {
+          title: "Une librairie graphique ?",
+          description: "Oui, en se basant sur Vuetify, j'encapsule des composant pour que ceux-ci correspondent au mieux à Pasquier, que ce soit sur la partie graphique comme sur le traitement des pramètres, le maximum est automatisé. en parrallèle le service R&D écris des guidelines et explique les différents choix fait pour éviter l'effet \"Boite noire\" auprès des autres développeurs."
+        },
+        {
+          title: "Et quoi d'autres ?",
+          description: "Une librairie de middleware de requête aux APIs, une librairie de validation de saisie et de gestion des retours d'erreurs d'API, une librairie d'authentification, une librairie d'icônes et plusieurs autres moins importantes."
+        },
+        {
+          title: "Travailler en R&D c'est tranquille ?",
+          description: "Une question qui revient souvent, le cliché de la R&D c'est se balader sur la toile et dire 'ça c'est bien' / 'ça pas top', à Pasquier ce n'est pas ça, lorsqu'une application sert à une multitude de services (exemple: la gestion des droits) c'est le service R&D qui développe. Bien évidemment nous faisons aussi de la veille technique en nous promenant sur la toile mais celà ne représente qu'une petite partie de notre temps."
+        },
+        {
+          title: "C'est tout ?",
+          description: "Et non, je fais beaucoup de chose à Pasquier, si vous souhaitez en apprendre un peu plus n'hésitez à me contacter (kevin@riou.pro)"
+        },
+      ]
     }
 
   },
