@@ -20,7 +20,7 @@
         <a href="tel:0618260849">06.18.26.08.49</a>
       </div>
       <div class="k-cv-keys">
-        <v-chip small outlined color="#777" v-for="key in keys" :key="key">{{key}}</v-chip>
+        <v-chip small outlined color="#555" v-for="key in keys" :key="key">{{key}}</v-chip>
       </div>
       <div class="k-cv-body">
         <div class="k-cv-col">
@@ -239,6 +239,8 @@
 
       .v-chip{
         margin: 5px 10px;
+        transform: scale(1.2);
+        font-weight: 700;
       }
     }
 
@@ -340,12 +342,33 @@
           // box-shadow: 1px 1px 8px 0 rgba(0,0,0,0.4);
           position: relative;
 
+          &::after{
+            content: '';
+            position: absolute;
+            bottom: 11px;
+            left: -7px;
+            background-color: #F8F301;
+            width: 2px;
+            height: 30px;
+          }
+
           h4{
             padding: 2px 5px;
             margin: 0 0 5px 0;
             font-size: 18px;
-            background-color: #F8F301;
+            // background-color: #F8F301;
             width: fit-content;
+            position: relative;
+
+            &::after{
+              content: '';
+              position: absolute;
+              left: 100%;
+              top: 15px;
+              background-color: #F8F301;
+              width: calc(258px - 100%);
+              height: 2px;
+            }
           }
 
           > p{
@@ -362,7 +385,7 @@
               width: 70px;
               height: 20px;
               position: absolute;
-              top: 13px;
+              top: 8px;
               right: 10px;
               color: darkgrey;
               font-weight: 700;
