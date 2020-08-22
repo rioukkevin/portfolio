@@ -52,7 +52,7 @@
               <div class="k-cv-project-content">
                 <p v-title>{{ project.title }}</p>
                 <p>{{ project.job }}</p>
-                <a :href="'https://kevin.riou.pro/project/'+project.id">Plus de détail</a>
+                <a :href="'https://kevin.riou.pro/project/'+project.id">Plus de détails</a>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
             name: 'Brioche Pasquier',
             contrat: 'Alternance',
             job: 'Développeur Front R&D',
-            description: 'Je travail sur la mise en place d\'un framework interne en VueJS (Front)'
+            description: 'Je travaille sur la mise en place d\'un framework interne en VueJS (Front)'
           }
         ],
         projects: []
