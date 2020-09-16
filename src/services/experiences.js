@@ -1,6 +1,11 @@
 export default{
   data: [
     {
+      name: "VSCode git buttons extension",
+      url: "https://marketplace.visualstudio.com/items?itemName=rioukkevin.vscode-git-buttons",
+      color: "#19729a"
+    },
+    {
       name: "VSCode git commit extension",
       url: "https://marketplace.visualstudio.com/items?itemName=rioukkevin.vscode-git-commit",
       color: "#4690fd"
