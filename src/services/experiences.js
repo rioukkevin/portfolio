@@ -1,9 +1,14 @@
 export default{
   data: [
     {
+      name: "VSCode git buttons extension",
+      url: "https://marketplace.visualstudio.com/items?itemName=rioukkevin.vscode-git-buttons",
+      color: "#2783B4"
+    },
+    {
       name: "VSCode git commit extension",
       url: "https://marketplace.visualstudio.com/items?itemName=rioukkevin.vscode-git-commit",
-      color: "#4690fd"
+      color: "#DC4338"
     },
     {
       name: "Vue Rainbow Mixin",

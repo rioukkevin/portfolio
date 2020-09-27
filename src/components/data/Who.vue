@@ -9,7 +9,7 @@
     <div ref="name" class="k-name-container">RIOU KEVIN</div>
     <h2 class="k-job" v-title>Développeur web en freelance</h2>
     <p class="k-description">
-      Salut, moi c'est Kévin, je suis un jeune étudiant à MyDigitalSchool travaillant en alternance dans l'entreprise Pasquier et en Freelance à mon compte. N'hésitez pas à vous balader sur mon site pour voir quelques réalisations que j'ai faites.
+      Salut, moi c'est Kévin, je suis un jeune étudiant à MyDigitalSchool travaillant en alternance dans l'entreprise Alpha8 et en Freelance à mon compte. N'hésitez pas à vous balader sur mon site pour voir quelques réalisations que j'ai faites.
       <v-btn id="addContact" class="k-button" v-cursor="'contact'" @click="getContact">
         Ajouter aux contacts
       </v-btn>

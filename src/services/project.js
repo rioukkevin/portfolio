@@ -8,6 +8,9 @@ export default {
       technologies: [
         "Vuejs",
         "PWA",
+        "AnimeJS",
+        "Vuetify",
+        "Router",
         "Sass"
       ],
       colors: [
@@ -21,11 +24,11 @@ export default {
         },
         {
           title: "Mais pourquoi ?",
-          description: "J'ai développé ce site comme celui sur lequel vous êtes aujourd'hui pour accompagner mon CV, une feuille A4 c'est très limité, il manque souvent des informations. J'ai donc depuis 2016 un site en ligne qui parle de moi. Ce site me sert aussi de 'Sandbox', je teste des technologies (NodeJS), des méthodes (HOC) et toutes les choses qui me passent par la tête. Si ces tests sont concluant je travail avec dans mes missions de freelance"
+          description: "J'ai développé ce site pour accroitre ma visibilité sur la toile, en tant que développeur axé sur le Front, il est important de pouvoir montrer à tout instants une partie du travail que je peux accomplir. Enfin je suis Freelance depuis le 1er janvier 2020 il me fallait donc cette vitrine pour faire des démonstrations à mes clients."
         },
         {
           title: "Il ne faut jamais s'arrêter",
-          description: "Ce site web n'est pas encore une Rolls Royce des sites webs, il y a du travail ! Je travail encore sur le référencement, son contenu, sa mise en page et très important sur les manières de le développer (Mise en place de HOC). Une fois la plus grosse partie réalisée, les sources seront disponibles sur mon Github pour faciliter la compréhension de celles-ci."
+          description: "Ce site web est en constante évolution, ainsi les nouveaux tips et astuces que j'apprend sont appliqués. Un site web qui ne bouge pas pendant plusieurs années paraît 'mort', c'est pourquoi je change le contenu de temps en temps."
         }
       ]
     },
@@ -53,11 +56,15 @@ export default {
         },
         {
           title: "Mais pourquoi ?",
-          description: "J'ai développé ce site comme celui sur lequel vous êtes aujourd'hui pour accompagner mon CV, une feuille A4 c'est très limité, souvent il manque des informations, j'ai donc depuis 2016 un site en ligne qui parle de moi. Ce site me sert aussi de 'Sandbox', je teste des technologies (NodeJS), des méthodes (HOC) et toutes les choses qui me passent par la tête sur mon site web. Si ces tests sont concluant je travail avec dans mes missions de freelance"
+          description: "J'ai développé ce site comme celui sur lequel vous êtes aujourd'hui pour accompagner mon CV, une feuille A4 c'est très limité, souvent il manque des informations, j'ai donc depuis 2016 un site en ligne qui parle de moi. Ce site me sert aussi de 'Sandbox', je teste des technologies (NodeJS), des méthodes (HOC) et toutes les choses qui me passent par la tête sur mon site web. Si ces tests sont concluant je travail avec lorsque j'ai l'occasion."
         },
         {
           title: "Mais on peut le voir ce site ?",
           description: "Oui, mais il ne faut pas tenir compte de la qualité de celui-ci, des bugs sont apparus depuis son développement, c'est une version obsolète. Vous pouvez le trouver ici: http://v1-kevin.riou.pro/ Et oui, même le certificat SSl n'est plus à jour"
+        },
+        {
+          title: "Quelle est sa particularité ?",
+          description: "Ce site est donc fait à 99% de ma main, c'est un défi que je me suis fixé en 2019, celà m'a permis d'apprendre énormément sur les languages que j'utilisais, d'améliorer mes algorythmes afin d'être le plus léger possible. Notemment sur ce site web j'ai appris à optimiser les performances des animations en CSS, pour beaucoup, ça parait négligeable mais ce n'est pas le cas. par exemple la consommation graphique à diminué d'environ 25% suite au travail sur les performances."
         }
       ]
     },
@@ -90,14 +97,15 @@ export default {
     },
     pasquierFramework: {
       title: "Framework Web Pasquier",
-      description: "Toujours en cours, le contenu arrivera au fil de l'eau! Développement avec les guidelines d'un UX designer d'un framework web chez Pasquier. Basé sur le framework VueJS avec la librairie Vuetify, ce framework permet une harmonisation des applications au sein du SI Pasquier",
+      description: "J'ai désormais quitté l'entreprise Pasquier, des captures d'écrans arrivent bientôt.",
       job: "Dev Front",
       imgs: [],
       technologies: [
         "VueJS",
         "Vuetify",
         "Sass",
-        "JS"
+        "JS",
+        "TS"
       ],
       colors: [
         "#172665",
@@ -108,11 +116,11 @@ export default {
       details: [
         {
           title: "C'est bien vide ici !",
-          description: "Et oui, malheureusement pour des raisons légales, je n'ai pas mis de captures de ce que je fais chez Pasquier. Je prend les renseignements en ce moment."
+          description: "Et oui, malheureusement pour des raisons légales, je n'ai pas mis de captures de ce que j'ai fais chez Pasquier. Je prend les renseignements en ce moment."
         },
         {
           title: "Sur quoi je travail ?",
-          description: "On appelle Framework à Pasquier un ensemble de librairies Npm, le but est de faciliter accélérer au maximum le temps de développement d'une application interne dans l'entreprise."
+          description: "On appelle Framework à Pasquier un ensemble de librairies npm, le but est de faciliter et accélérer au maximum le temps de développement d'une application interne dans l'entreprise."
         },
         {
           title: "Une librairie graphique ?",
@@ -145,6 +153,15 @@ export default {
   },
   list(){
     return Object.keys(this.data)
+  },
+  // Return techs with at least presence in 2 projects
+  listTechno(){
+    let allProjects = this.list().map(p => this.get(p))
+    let techsFlat = allProjects.map(p => p.technologies).flat()
+    let techsUniq = {}
+    techsFlat.map(e => {techsUniq[e] == undefined ? techsUniq[e] = 1 : techsUniq[e] += 1})
+    techsUniq = Object.keys(techsUniq).filter( a => techsUniq[a] > 1)
+    return techsUniq
   },
   previous(id){
     let index = this.list().indexOf(id)
