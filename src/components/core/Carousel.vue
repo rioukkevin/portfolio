@@ -1,5 +1,5 @@
 <template>
-  <div :style="style" v-if="imgs.length > 0">
+  <div :style="style" v-if="imgs.length > 0" style="position:relative">
     <div class="k-carousel" ref="myCarousel">
       <div class="k-carousel-content">
         <div class="k-carousel-item" v-for="(img, i) in imgs" :key="i">
@@ -13,11 +13,30 @@
         <img :src="'/assets/project/'+img" @click="goTo(i)"/>
       </div>
     </div>
+    <div class="k-carousel-overlay">
+      <div class="k-carousel-overlay-relative">
+        <div class="k-carousel-overlay-controls">
+          <v-icon size="72" color="#FFF" @click="previous">
+            mdi-skip-previous
+          </v-icon>
+        </div>
+        <div class="k-carousel-overlay-controls">
+          <v-icon size="72" color="#FFF" @click="next">
+            mdi-skip-next
+          </v-icon>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      current: 0
+    }
+  },
   props: {
     imgs: {
       type: Array,
@@ -41,15 +60,19 @@ export default {
   },
   methods: {
     goTo(i){
-      const inter = (this.size + (2*this.margin)) * i
-      this.$refs.myCarousel.scrollTo(inter,0)
-      this.$refs.myCarouselIndicator.style.transform = "translateX("+(i*70)+"px)"
+      if(i >= 0 && i <= this.imgs.length - 1 ){
+        this.current = i
+        const inter = (this.size + (2*this.margin)) * i
+        this.$refs.myCarousel.scrollTo(inter,0)
+        this.$refs.myCarouselIndicator.style.transform = "translateX("+(i*70)+"px)"
+      }
+      
     },
     next(){
-      this.$refs.myCarousel.scrollBy(600, 0)
+      this.goTo(this.current + 1)
     },
     previous(){
-      this.$refs.myCarousel.scrollBy(600, 0)
+      this.goTo(this.current - 1)
     }
   },
 };
@@ -158,6 +181,43 @@ export default {
         width: 100%;
         height: 100%;
         // pointer-events: all;
+      }
+    }
+  }
+}
+
+.k-carousel-overlay{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 5;
+  pointer-events: none;
+
+  .k-carousel-overlay-relative{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    .k-carousel-overlay-controls{
+      pointer-events: all;
+      width: 15%;
+      min-width: 50px;
+      height: 100%;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition-duration: 300ms;
+      will-change: background-color;
+      backdrop-filter: blur(4px);
+
+      &:hover{
+        background-color: rgba(255,255,255,0.4);
+
       }
     }
   }
