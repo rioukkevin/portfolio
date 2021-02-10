@@ -72,7 +72,7 @@
         href="https://m2c.stafe.fr/"
         v-twemoji
         v-cursor="'link'"
-        >Une expérience SEO</a
+        >Le meilleur snack d'Angers</a
       >
     </div>
   </div>
