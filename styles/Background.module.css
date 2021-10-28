@@ -1,0 +1,16 @@
+.canva {
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.back {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  top: 0;
+  left: 0;
+}
